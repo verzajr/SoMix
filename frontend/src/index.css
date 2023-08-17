@@ -1,4 +1,5 @@
 
+
 body {
     background-color: #40261E;
     height: 100vh;
@@ -16,10 +17,11 @@ body {
         grid-row-end: 2;
         margin: 10px 10px 10px 10px;
         min-width: 64px;
-        max-width: 191px;
+        max-width: 250px;
         align-self:center;
         justify-self: start;
     }
+
     .button{
         margin: 3px 3px 3px 3px;
         background-color:#12B347;
@@ -34,6 +36,7 @@ body {
         border:#12B347;
         border-radius: 4px;
     }
+
     .rightTile{
         grid-column-start: 5;
         grid-column-end: 6;
@@ -46,7 +49,6 @@ body {
         align-self: center;
         justify-self: end;
     }
-
 
     .orangeLine{
         background-color: #F59325;
@@ -61,47 +63,80 @@ body {
         grid-column-end: 2;
         grid-row-start: 4;
         grid-row-end: 6;
-        min-width: 117px;
-        max-width: 487px;
+        width: 470px;
         align-self:center;
         justify-self: start;        
     }
+
     .welcome{
         grid-column-start: 3;
         grid-column-end: 4;
         grid-row-start: 5;
         grid-row-end: 6;
-        height: fit-content;
-        width: fit-content;
-        justify-content: flex-start;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        text-align: center; 
         align-self: flex-start;
         justify-self: center;
+        margin-top: 10vh;
     }
+
     .welcomeText{
         color: whitesmoke;
         padding: 20px 20px 20px 20px;
         font-family: "Dosis", sans-serif;
-        font-size: 20px;
+        font-size: 2vw;
         font-weight: bold;
         align-self: center;
-        justify-self: center;      
+        justify-self: center;     
     }
-    .searchField{
+
+    .search{
         grid-column-start: 3;
         grid-column-end: 4;
         grid-row-start: 5;
         grid-row-end: 6;
-        height: 50;
-        width: 250;
+        margin: 10px 10px 10px 10px;
+        height: fit-content;
+        width: fit-content;
+        display: flex;
+        flex-direction: row;
+        align-content: center;
+        justify-content: space-evenly;
+        align-self: center;
+        justify-self: center;
+    }
+
+    .searchField{
         background-color: whitesmoke;
         border-radius: 10px;
         border-color: whitesmoke;
-        align-self:center;
-        justify-self: center;
+        height: 50;
+        width: 250;
         padding: 10px 20px 10px 20px;
+        margin: 10px 10px 10px 10px;
         font-family: "Dosis", sans-serif;
-        font-size: 20px;   
+        font-size: 20px;
+        align-self: center;
+        justify-self: start;   
     }
+
+    .searchButton{
+        background-color: #12B347;
+        border: 1px solid #12B347;
+        border-radius: 50px;
+        height: 50px;
+        width: 50px;
+        box-shadow: 5px 5px 5px -3px black;
+        margin: 10px 10px 10px 10px;
+        padding: 5px 5px 5px 5px;
+        align-self: center;
+        justify-self: end;
+        align-content: center;
+        justify-content: center;  
+    }
+
 
 }
 
