@@ -14,8 +14,8 @@ const homeComponent = {
             <div class="welcomeText">Bem vindo ao Somix!<br>Onde você mesmo cria suas playlists favoritas.</div>
         </div>
     <div class="search">
-        <input class="searchField" type="search" id="searchField_id" name="searchField_name" maxlength=80>
-        <button type="submit" class="searchButton">
+        <input class="formField" type="search" id="searchField_id" name="searchField_name" maxlength=80>
+        <button class="searchButton" type="button" id="searchButton" name="searchButton">
             <img src="./icons/searchIcon.png" width="30" style="vertical-align: middle">
         </button>
     </div>`
@@ -27,9 +27,14 @@ const loginComponent = {
     render :() => {
         return`
         <a href="#/"><img class="logo" src="./images/logoColor.png" alt="Página inicial"></a> <!-- adding application logo -->
-        <div class="welcomeText">Login</div>
-        <div class="orangeLine"></div>`
-        
+        <div class="orangeLine"></div>
+        <form class="loginForm">
+            <label class="formLabel" for="username">Usuário:</label><br>
+            <input class="formField" type="text" id="username" name="username"><br>
+            <label class="formLabel" for="pwd">Senha:</label><br>
+            <input class="formField" type="password" id="pwd" name="pwd"><br>
+            <button class="button" type="button" id="loginButton" name="loginButton">Login</button>
+        </form>`
         ;
     }
 };
