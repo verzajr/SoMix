@@ -9,7 +9,7 @@ body {
     
     .app{
         display: grid;
-        grid-template-columns: 30vw 5vw 30vw 5vw 30vw; /* three columns for the search content results with 5% space between them */
+        grid-template-columns: 32vw 2vw 32vw 2vw 32vw; /* three columns for the search content results with 5% space between them */
         grid-template-rows: max-content 10px 3px 5px max-content auto; /* three vertical divisions the midle one is the orange line dividing header from the rest */ 
     }
     
@@ -38,7 +38,25 @@ body {
         text-justify: distribute;
         border:#12B347;
         border-radius: 4px;
+        cursor:pointer;
     }
+
+    .logOutButton{
+        margin: 3px 3px 3px 3px;
+        background-color:#8F8F8F;
+        color: white;
+        box-shadow: 5px 5px 5px -3px black;
+        padding: 10px 15px 10px 15px;
+        font-size: 20px;
+        font-weight: normal;
+        font-family: "Dosis", sans-serif;
+        text-align: center;
+        text-justify: distribute;
+        border:#8F8F8F;
+        border-radius: 4px;
+        cursor:pointer;
+    }
+
 
     .rightTile{
         grid-column-start: 5;
@@ -123,7 +141,8 @@ body {
         align-self: center;
         justify-self: end;
         align-content: center;
-        justify-content: center;  
+        justify-content: center;
+        cursor:pointer;  
     }
     
     .loginForm{
@@ -131,22 +150,17 @@ body {
         grid-column-end: 4;
         grid-row-start: 5;
         grid-row-end: 6;
-        margin: 10px 10px 10px 10px;
-        align-self: center;
-        justify-self: center;
-        align-content: center;
-        justify-content: center;
-        margin-top: 25vh;
-        margin-bottom: 25vh;
+        margin: 25vh 5vh 25vh 5vh;
+        place-self: center center;
+        text-align: center;
     }
 
     .formField{
-        grid-row-start: 2;
         background-color: whitesmoke;
         border-radius: 10px;
         border-color: whitesmoke;
         height: 50;
-        width: 250;
+        width: 300;
         padding: 10px 20px 10px 20px;
         margin: 10px 10px 10px 10px;
         font-family: "Dosis", sans-serif;
@@ -154,14 +168,102 @@ body {
         align-self: center;
     }
 
-    .formLabel{
+    .artistResultsTile{
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 5;
+        grid-row-end: 6;
+        padding: 5px 5px 5px 5px;
+        margin: 5px 5px 5px 5px;
+        background-color: rgba(99, 70, 45, 0.5);
+        border-radius: 10px;
+        text-align: center;
+        text-justify: distribute;
+        display:block;
+        align-content: space-evenly;
+        justify-content: center;
+    }
+
+    .albumResultsTile{
+        grid-column-start: 3;
+        grid-column-end: 4;
+        grid-row-start: 5;
+        grid-row-end: 6;
+        padding: 5px 5px 5px 5px;
+        margin: 5px 5px 5px 5px;
+        background-color: rgba(99, 70, 45, 0.5);
+        border-radius: 10px;
+        text-align: center;
+        text-justify: distribute;
+        display:block;
+        align-content: space-evenly;
+        justify-content: center;
+    }
+
+    .songResultsTile{
+        grid-column-start: 5;
+        grid-column-end: 6;
+        grid-row-start: 5;
+        grid-row-end: 6;
+        padding: 5px 5px 5px 5px;
+        margin: 5px 5px 5px 5px;
+        background-color: rgba(99, 70, 45, 0.5);
+        border-radius: 10px;
+        text-align: center;
+        text-justify: distribute;
+        display:block;
+        align-content: space-evenly;
+        justify-content: center;
+    }
+
+    .resultTileTitle{
         color: whitesmoke;
         padding: 20px 20px 20px 20px;
         font-family: "Dosis", sans-serif;
-        font-size: 2vw;
-        font-weight: bold;   
+        font-size: 3vw;
+        font-weight: bold;
+        align-self: center;
+        justify-self: center;     
     }
+
+    .resultFrame{
+        margin: 5px 5px 5px 5px;
+        padding: 10px 10px 10px 10px;
+        border: 1px solid;
+        border-color:#E6EDF5;
+        border-radius: 10px;
+        margin-bottom: 5px;
+        color: white;
+        font-size: 30px;
+        font-weight: normal;
+        font-family: "Dosis", sans-serif;
+        text-align: center;
+        text-justify: center;
+        display:flex;
+        align-items: center;
+        justify-content: space-between;
+
+    }
+
+    .artistCover{
+        height: 60px;
+        width: 60px;
+        align-self:center;
+        justify-self: center;
+    }
+
+    .optionsButton{
+        margin: 5px 5px 5px 5px;
+        height: 40px;
+        width: 40px;
+        align-self:center;
+        justify-self: end;
+    }
+
+
 }
+
+
 
 footer{
     background-color: #26355E;
