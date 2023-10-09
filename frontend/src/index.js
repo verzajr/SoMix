@@ -1,11 +1,13 @@
+//imports event listener functions 
+
+import handleSearchClick from "./services/buttonFunctions.js";
+
 //imports routes from the routes service
 
 import routes from "./services/routes.js";
 
-//defines window and document relation with id to later connect with the "app" object on index.html
-window.switchTo = function (id) {
-  document.getElementById(id).click();
-};
+//clears local storage
+localStorage.clear
 
 //Parses the location string to get the desired path
 const parseLocation = () => location.hash.slice(1).toLowerCase() || '/';
@@ -24,3 +26,10 @@ const router = () => {
 //listens to changes on the URL path
 window.addEventListener('hashchange', router);
 window.addEventListener('load', router);
+
+//Event Listeners
+window.onload=function() {
+document.getElementById('searchButton').addEventListener("click",handleSearchClick);
+
+};
+
