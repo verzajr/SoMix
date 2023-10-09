@@ -18,14 +18,14 @@ function gatherSearchResults_Artists(searchValue,results){
         if (upperCaseArtistName.includes(upperCaseSearchValue)){
             if (artistsIDarray.length==0){
                 artistsIDarray.push(artistID);
-                }
-            else 
-                for (let j=0 ; j<artistsIDarray.length; j++){
-                    if (artistsIDarray[j] == artistID){
-                        artistIDcheck=false;
-                        };
+                artistIDcheck=false;
+            };
+            for (let j=0 ; j<artistsIDarray.length; j++){
+                if (artistsIDarray[j] == artistID){
+                    artistIDcheck=false;
                     };
-            if (artistsIDarray.length!= 1 && artistIDcheck==true){
+                };
+            if (artistIDcheck==true){
                 artistsIDarray.push(artistID);
             };
         };
@@ -47,15 +47,16 @@ function gatherSearchResults_Albums(searchValue,results){
             if (albumsIDarray.length==0){
                 albumsIDarray.push(albumID);
                 console.log("matching result",upperCaseAlbumTitle)
-                }
-            else 
-                for (let j=0 ; j<albumsIDarray.length; j++){
-                    if (albumsIDarray[j] == albumID){
-                        albumIDcheck=false;
-                        };
+                albumIDcheck=false;
+                };
+            for (let j=0 ; j<albumsIDarray.length; j++){
+                if (albumsIDarray[j] == albumID){
+                    albumIDcheck=false;
                     };
-            if (albumsIDarray.length!= 1 && albumIDcheck==true){
+                };
+            if (albumIDcheck==true){
                 albumsIDarray.push(albumID);
+                console.log("matching result",upperCaseAlbumTitle);
             };
         };
     };
@@ -76,15 +77,16 @@ function gatherSearchResults_Tracks(searchValue,results){
             if (tracksIDarray.length==0){
                 tracksIDarray.push(trackID);
                 console.log("matching result",upperCaseTrackTitle)
-                }
-            else 
-                for (let j=0 ; j<tracksIDarray.length; j++){
-                    if (tracksIDarray[j] == trackID){
-                        trackIDcheck=false;
-                        };
+                trackIDcheck=false;
+                };
+            for (let j=0 ; j<tracksIDarray.length; j++){
+                if (tracksIDarray[j] == trackID){
+                    trackIDcheck=false;
                     };
-            if (tracksIDarray.length!= 1 && trackIDcheck==true){
+                };
+            if (trackIDcheck==true){
                 tracksIDarray.push(trackID);
+                console.log("matching result",upperCaseTrackTitle);
             };
         };
     };
