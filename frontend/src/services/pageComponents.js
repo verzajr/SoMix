@@ -1,3 +1,4 @@
+
 const homeComponent = {
     render :() => {
         return`
@@ -14,7 +15,7 @@ const homeComponent = {
             <div class="welcomeText">Bem vindo ao Somix!<br>Onde você mesmo cria suas playlists favoritas.</div>
         </div>
     <div class="search">
-        <input class="formField" type="search" id="searchField_id" name="searchField_name" maxlength=80 placeholder="pesquisar">
+        <input class="formField" type="search" id="searchField" name="searchField" maxlength=80 placeholder="pesquisar">
         <button class="searchButton" type="button" id="searchButton" name="searchButton">
             <img src="./icons/searchIcon.png" width="30" style="vertical-align: middle">
         </button>
