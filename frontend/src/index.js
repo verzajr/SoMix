@@ -19,7 +19,7 @@ const findComponentByPath = (path, routes) => routes.find(r => r.path.match(new 
 //bundles the two functions and renders the new app object
 const router = () => {
     const path = parseLocation();
-    console.log(path);
+    console.log(`Path change to ${path}`);
     const { component = ErrorComponent } = findComponentByPath(path, routes) || {};
     document.getElementById('app').innerHTML = component.render();
 };
