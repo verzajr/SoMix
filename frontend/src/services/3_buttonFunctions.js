@@ -1,8 +1,6 @@
 import { API_GeneralSearch, API_ArtistSearch, API_AlbumSearch, API_TrackSearch } from "./4_sourceAPI.js";
 import processGeneralSearchResults from "./5_generalSearchDataProcessing.js";
 
-
-
 export default async function handleSearchClick() {
 
     const searchFieldValue = document.getElementById("searchField").value; // gets value from search field

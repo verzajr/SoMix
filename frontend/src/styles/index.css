@@ -238,7 +238,6 @@ body {
         font-weight: normal;
         font-family: "Dosis", sans-serif;
         text-align: center;
-        text-justify: center;
         display:flex;
         align-items: center;
         justify-content: space-between;
@@ -246,10 +245,10 @@ body {
     }
 
     .artistCover{
-        height: 60px;
-        width: 60px;
+        height: 80px;
+        width: 80px;
+        border-radius: 10px;
         align-self:center;
-        justify-self: center;
     }
 
     .optionsButton{
@@ -258,6 +257,8 @@ body {
         width: 40px;
         align-self:center;
         justify-self: end;
+        background-image: "../icons/options.png";
+        background-color:rgba(99, 70, 45, 0.5);
     }
 
 
