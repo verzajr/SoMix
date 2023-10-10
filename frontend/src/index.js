@@ -1,13 +1,14 @@
 //imports event listener functions 
 
-import handleSearchClick from "./services/buttonFunctions.js";
+import handleSearchClick from "./services/3_buttonFunctions.js";
 
 //imports routes from the routes service
 
-import routes from "./services/routes.js";
+import routes from "./services/1_routes.js";
 
 //clears local storage
 localStorage.clear
+
 
 //Parses the location string to get the desired path
 const parseLocation = () => location.hash.slice(1).toLowerCase() || '/';
