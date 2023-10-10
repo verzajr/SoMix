@@ -1,4 +1,3 @@
-
 const homeComponent = {
     render :() => {
         return`
@@ -77,22 +76,19 @@ const searchResultsComponent = {
         <div class="orangeLine"></div>
         <img class="homePhoto" src="./images/fonoHalf.png"> <!-- adding home picture of half a fonograph -->
         <div class="artistResultsTile">
-            <div class="resultTileTitle">Artistas</div>
-                <div class="resultFrame">
-                    <a class="artistCover" href="#/signup"><img class="artistCover" src="./icons/avatar.png"></a><!-- add artist cover with link to artist page -->
-                    Artista 1
-                    <img class="optionsButton" src="./icons/options.png">
-                </div>
-                <div class="resultFrame">
-                    <a class="artistCover" href="#/signup"><img class="artistCover" src="./icons/avatar.png"></a><!-- add artist cover with link to artist page -->
-                    Artista 2
-                <img class="optionsButton" src="./icons/options.png">
-                </div>
-                <div class="resultFrame">
-                    <a class="artistCover" href="#/signup"><img class="artistCover" src="./icons/avatar.png"></a><!-- add artist cover with link to artist page -->
-                    Artista 3
-                    <img class="optionsButton" src="./icons/options.png">
-                </div>
+        <div class="resultTileTitle">Artistas</div>
+        <div id="artistTiles"></div>
+            <script type="module">
+                const artists=localStorage.getItem("searchResults_Artists");
+                console.log("Rendering Artist Tiles",artists.length);
+                artistTiles="";
+                for (let i=0; i<artists.length;i++){
+                    console.log(i);
+                    artistTiles = artistTiles + '<div class="resultFrame"><img class="artistCover" src="' + artists[i].artist.picture_small + '">' + artists[i].artist.name + '<img class="optionsButton" src="./icons/options.png"></div>';
+                };
+                console.log(artists[i].artist.picture_small,artists[i].artist.name);
+                document.getElementById("artistTiles").innerHTML = artistTiles;
+            </script>
         </div>
         <div class="albumResultsTile">
         <div class="resultTileTitle">Álbuns</div>

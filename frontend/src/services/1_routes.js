@@ -1,5 +1,5 @@
 //imports the HTML components from the pageComponets service
-import {homeComponent,signUpComponent,loginComponent,searchResultsComponent} from "./pageComponents.js";
+import {homeComponent,signUpComponent,loginComponent,searchResultsComponent} from "./2_pageComponents.js";
 
 //makes the paths available to be imported by index.js
 export default [
