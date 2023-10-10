@@ -8,9 +8,9 @@ export default function processGeneralSearchResults(searchValue, generalSearchJs
     const artists = gatherSearchResults_Artists(searchValue, generalSeachData);
     const albums = gatherSearchResults_Albums(searchValue, generalSeachData);
     const tracks = gatherSearchResults_Tracks(searchValue, generalSeachData);
-    localStorage.setItem("searchResults_Artists", artists);
-    localStorage.setItem("searchResults_Albums", albums);
-    localStorage.setItem("searchResults_Tracks", tracks);
+    localStorage.setItem("searchResults_Artists", JSON.stringify(artists));
+    localStorage.setItem("searchResults_Albums", JSON.stringify(albums));
+    localStorage.setItem("searchResults_Tracks", JSON.stringify(tracks));
 };
 
 function gatherSearchResults_Artists(searchValue, results){
@@ -23,7 +23,7 @@ function gatherSearchResults_Artists(searchValue, results){
         let upperCaseArtistName = artistName.toUpperCase();
         let needsAdded=true;
         if (upperCaseArtistName.includes(upperCaseSearchValue)){
-            if (artistsArray.length==0){
+            if (artistsArray.length===0){
                 artistsArray.push(results[i]);
                 needsAdded=false;
             };
@@ -32,11 +32,12 @@ function gatherSearchResults_Artists(searchValue, results){
                     needsAdded=false;
                     };
                 };
-            if (needsAdded==true){
+            if (needsAdded===true){
                 artistsArray.push(results[i]);
             };
         };
     };
+    console.log('artistarray', artistsArray);
     return artistsArray;
 };
 
