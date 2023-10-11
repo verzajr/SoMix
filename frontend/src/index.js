@@ -1,12 +1,8 @@
-// imports page builder functions
-import renderArtistCards from "./services/6_artistElement.js";
-//imports event listener functions 
-
-import handleSearchClick from "./services/3_buttonFunctions.js";
-
 //imports routes from the routes service
 
 import routes from "./services/1_routes.js";
+import { buildHomePage } from "./pages/1_home.js";
+import { buildSearchPage } from "./pages/4_search.js";
 
 //clears local storage
 localStorage.clear
@@ -19,11 +15,14 @@ const parseLocation = () => location.hash.slice(1).toLowerCase() || '/';
 const findComponentByPath = (path, routes) => routes.find(r => r.path.match(new RegExp(`^\\${path}$`, 'gm'))) || undefined;
 
 // Calls page building functions
-function pagebuilder(path){
-    switch (path){
-        case "/search": renderArtistCards();
-        console.log("Building Artist Cards");
-        break;
+function pagebuilder(path) {
+    switch (path) {
+        case "/":
+            buildHomePage();
+            break;
+        case "/search": 
+            buildSearchPage();
+            break;
     }
 }
 
@@ -38,16 +37,11 @@ const router = () => {
     pagebuilder(path);
 };
 
-
-
 //listens to changes on the URL path
 window.addEventListener('hashchange', router);
 window.addEventListener('load', router);
 
-//Event Listeners
-window.onload=function() {
-document.getElementById('searchButton').addEventListener("click",handleSearchClick);
 
 
-};
+
 
