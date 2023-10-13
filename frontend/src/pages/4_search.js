@@ -1,6 +1,73 @@
-// imports page builder functions
-import { renderArtistCards, renderAlbumCards, renderTrackCards } from "../services/6_artistElement.js";
+import { createCustomHTMLElement, createImageElement } from "../services/6_HTMLbuilder.js";
+import { handleExecuteBtn } from "../services/3_buttonFunctions.js";
 
+const createOptionsButtonElement = () => {
+
+    const optionsButton = document.createElement('div');
+    optionsButton.className = 'dropdown';
+
+        const dropButton = optionsButton.appendChild(createCustomHTMLElement('button', 'dropbtn', ''));
+        dropButton.appendChild(createCustomHTMLElement('i','fa fa-caret-down',''));
+
+        const dropDownContent = optionsButton.appendChild(createCustomHTMLElement('div', 'dropdown-content',''));
+            
+            const executeButton = dropDownContent.appendChild(createCustomHTMLElement('a','resultFrame','Executar'));
+            executeButton.addEventListener('click', handleExecuteBtn);
+
+            const addFavoriteButton = dropDownContent.appendChild(createCustomHTMLElement('a','resultFrame','Adicionar aos favoritos'));
+            addFavoriteButton.setAttribute('href', '#/favoritesongs')
+
+            const addPlaylistBtn = dropDownContent.appendChild(createCustomHTMLElement('a','resultFrame','Adicionar a uma playlist'));
+            addPlaylistBtn.setAttribute('href', '#/playlist')
+
+    return optionsButton;
+};
+
+
+const createCard = (element, image, url) => {
+
+    const resultCard = createCustomHTMLElement('div', 'resultFrame', "");
+    resultCard.setAttribute('id',url)
+    resultCard.appendChild(createImageElement(image));
+    resultCard.appendChild(createCustomHTMLElement('p', 'cardText', element));
+    resultCard.appendChild(createOptionsButtonElement());
+    return resultCard;
+}
+
+const gatherCards = (resultsArray, referenceHTMLElement, cardType) => {
+    console.log(`Gathering ${cardType} cards...`);
+    if (cardType === 'Artists') {
+        const allArtists = resultsArray.map((e) => ({ artist: e.artist.name, image: e.artist.picture, executionURL: e.artist.tracklist }));
+        allArtists.forEach((e) => referenceHTMLElement.appendChild(createCard(e.artist, e.image, e.executionURL)));
+    };
+    if (cardType === 'Albums') {
+        const allAlbums = resultsArray.map((e) => ({ album: e.album.title, image: e.album.cover, executionURL: e.album.tracklist }));
+        allAlbums.forEach((e) => referenceHTMLElement.appendChild(createCard(e.album, e.image, e.executionURL)));
+    };
+    if (cardType === 'Tracks') {
+        const allTracks = resultsArray.map((e) => ({ track: e.title, image: e.album.cover, executionURL: e.preview }));
+        allTracks.forEach((e) => referenceHTMLElement.appendChild(createCard(e.track, e.image, e.executionURL)));
+    };
+
+}
+
+const renderArtistCards = () => {
+    const artistArray = JSON.parse(localStorage.getItem('searchResults_Artists'));
+    const artistTiles = document.getElementById('artistTiles');//referecenHTMLElement
+    gatherCards(artistArray, artistTiles, "Artists");
+}
+
+const renderAlbumCards = () => {
+    const albumArray = JSON.parse(localStorage.getItem('searchResults_Albums'));
+    const albumTiles = document.getElementById('albumTiles');//referecenHTMLElement
+    gatherCards(albumArray, albumTiles, "Albums");
+}
+
+const renderTrackCards = () => {
+    const trackArray = JSON.parse(localStorage.getItem('searchResults_Tracks'));
+    const trackTiles = document.getElementById('trackTiles');//referecenHTMLElement
+    gatherCards(trackArray, trackTiles, "Tracks");
+}
 
 function buildSearchPage(){
     renderArtistCards();

@@ -1,6 +1,6 @@
 
 //imports event listener functions 
-import handleSearchClick from "../services/3_buttonFunctions.js";
+import {handleSearchClick} from "../services/3_buttonFunctions.js";
 
 
 

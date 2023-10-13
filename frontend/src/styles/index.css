@@ -268,16 +268,99 @@ body {
         align-self:center;
         justify-self:left;
     }
-    .optionsButton{
-        margin: 5px 5px 5px 5px;
-        height: 40px;
-        width: 40px;
-        align-self:center;
-        justify-self: right;
-        background-image: "../icons/options.png";
-        background-color:rgba(99, 70, 45, 0.5);
-    }
 
+.dropbtn {
+    margin: 5px 5px 5px 5px;
+    width: 60px;
+    height: 60px;
+    align-self:center;
+    justify-self: right;
+    background-image: url("../icons/options.png");
+    background-color:rgba(0, 0, 0, 0);
+    border-radius: 10px;
+    cursor: pointer; 
+    border:none; 
+}
+
+.dropdown {
+    
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: rgba(99, 70, 45, 1);
+    min-width: 180px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    border-radius: 10px;
+    z-index: 1;
+    font-size: 30px;
+    font-weight: normal;
+    font-family: "Dosis", sans-serif;
+}
+
+.dropdown-content a {
+    color: white;
+    margin: 5px 5px 5px 5px;
+    padding: 10px 10px 10px 10px;
+    border: 1px solid;
+    border-color:#E6EDF5;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #40261E;
+    cursor: pointer; 
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color:rgba(99, 70, 45, 0.5);
+}
+
+.songPlayer{
+    background-color:rgba(99, 70, 45, 0.5);
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 4;
+    grid-row-end: 5
+};
+
+.audioPlayer{
+    height: fit-content;
+    width: fit-content;
+    display: flex;
+    align-content: space-between;
+    justify-content: space-between;
+    align-self: center;
+    justify-self: center;
+}
+
+.playButton{
+    height: 70px;
+    width: 70px;
+    border: none;
+    background-color:rgba(99, 70, 45, 0);
+    background-image: url("../icons/playbutton.png");
+    background-repeat: no-repeat;
+    justify-self: center;
+}
+
+.pauseButton{
+    height: 60px;
+    width: 60px;
+    border: none;
+    background-color:rgba(99, 70, 45, 0);
+    background-image: url("../icons/pausebutton.png");
+    background-repeat: no-repeat;
+    justify-self: center;
+}
 
 }
 

@@ -3,6 +3,7 @@
 import routes from "./services/1_routes.js";
 import { buildHomePage } from "./pages/1_home.js";
 import { buildSearchPage } from "./pages/4_search.js";
+import { buildSongPlayerPage } from "./pages/5_player_song.js";
 
 //clears local storage
 localStorage.clear
@@ -23,6 +24,9 @@ function pagebuilder(path) {
         case "/search": 
             buildSearchPage();
             break;
+        case "/songplayer":
+            buildSongPlayerPage();
+            break;
     }
 }
 
@@ -33,8 +37,9 @@ const router = () => {
     console.log(`Path change to ${path}`);
     const { component = ErrorComponent } = findComponentByPath(path, routes) || {};
     document.getElementById('app').innerHTML = component.render();
-    console.log(`Page ${path} rendered`);
     pagebuilder(path);
+    console.log(`Page ${path} rendered`);
+
 };
 
 //listens to changes on the URL path
