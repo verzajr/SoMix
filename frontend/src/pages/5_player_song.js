@@ -1,4 +1,24 @@
-const executeSongComponent = {
+import { createCustomHTMLElement } from "../services/6_HTMLbuilder.js";
+
+export function buildSongPlayerPage() {
+    const sourceURL = localStorage.getItem('executionSourceURL');
+    createPlayer(sourceURL);
+};
+
+function createPlayer(link) {
+    const songPlayer = document.getElementsByClassName('songPlayer')[0];
+    console.log(songPlayer);
+    const htmlAudio = songPlayer.appendChild(createCustomHTMLElement('audio', 'audioPlayer',''));
+    htmlAudio.setAttribute('controls',true);
+    const source = htmlAudio.appendChild(createCustomHTMLElement('source','',''));
+    source.setAttribute('src', link);
+    source.setAttribute('type','audio/mpeg')
+}
+
+
+
+
+export const executeSongComponent = {
     
     render: () => {
         return `
@@ -17,4 +37,3 @@ const executeSongComponent = {
     }
 };
 
-export {executeSongComponent};

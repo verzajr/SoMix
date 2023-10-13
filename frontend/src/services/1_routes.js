@@ -12,6 +12,8 @@ export default [
     {path: "/login", component: loginComponent},
     {path: "/signup", component: signUpComponent},
     {path: "/search", component: searchResultsComponent},
-    {path: "/player", component: executeSongComponent},
+    {path: "/songplayer", component: executeSongComponent},
+    {path: "/favoritesongs", component: executeSongComponent},
+    {path: "/playlist", component: executeSongComponent},
     ];
     
