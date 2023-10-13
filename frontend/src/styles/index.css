@@ -327,13 +327,39 @@ body {
 .songPlayer{
     background-color:rgba(99, 70, 45, 0.5);
     grid-column-start: 3;
+    grid-column-end: 4;
     grid-row-start: 4;
+    grid-row-end: 5
 };
 
 .audioPlayer{
-    background-color:rgba(99, 70, 45, 0.5);
-    grid-column-start: 3;
-    grid-row-start: 4;
+    height: fit-content;
+    width: fit-content;
+    display: flex;
+    align-content: space-between;
+    justify-content: space-between;
+    align-self: center;
+    justify-self: center;
+}
+
+.playButton{
+    height: 70px;
+    width: 70px;
+    border: none;
+    background-color:rgba(99, 70, 45, 0);
+    background-image: url("../icons/playbutton.png");
+    background-repeat: no-repeat;
+    justify-self: center;
+}
+
+.pauseButton{
+    height: 60px;
+    width: 60px;
+    border: none;
+    background-color:rgba(99, 70, 45, 0);
+    background-image: url("../icons/pausebutton.png");
+    background-repeat: no-repeat;
+    justify-self: center;
 }
 
 }
