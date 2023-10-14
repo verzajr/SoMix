@@ -28,11 +28,13 @@ console.log(url)
     // Get data from user with ID 
 DZ.api(`/search?q=${searchValue}`, function(response){
 	console.log("response",response);
-    localStorage.setItem('searchResults',response)
+    localStorage.setItem('searchResults',JSON.stringify(response))
+    let result1=JSON.parse(localStorage.getItem('searchResults'))
+    console.log("result1", result1);
 });
 
-let result=localStorage.getItem('searchResults')
-console.log("results",result)
+let result=JSON.parse(localStorage.getItem('searchResults'));
+console.log("results",result);
 
 return result
 
