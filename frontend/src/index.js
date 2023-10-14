@@ -20,7 +20,7 @@ function pagebuilder(path) {
     switch (path) {
         case "/":
             buildHomePage();
-            localStorage.clear
+            localStorage.clear();
             break;
         case "/search": 
             buildSearchPage();
