@@ -1,24 +1,26 @@
 import { API_GeneralSearch, API_ArtistSearch, API_AlbumSearch, API_TrackSearch } from "./4_sourceAPI.js";
 import processGeneralSearchResults from "./5_generalSearchDataProcessing.js";
 
+async function getSearchResultsFromLocalStorage(searchValue){
+    const localStorageKey=searchValue;
+    const generalSearchResult = await JSON.parse(localStorage.getItem(localStorageKey));
+    console.log('resultado de general', generalSearchResult);
+    return generalSearchResult;
+    
+}
+
 export async function handleSearchClick() {
 
     const searchFieldValue = document.getElementById("searchField").value; // gets value from search field
     const lowerCaseSearchFieldValue= searchFieldValue.toLowerCase();
     console.log(`Handling Search for "${lowerCaseSearchFieldValue}"...`);
+
     await API_GeneralSearch(lowerCaseSearchFieldValue); // calls API function to search the API repository and gets a Json with results
-    window.location.href = "#/search";
+
     const generalSearchResult = getSearchResultsFromLocalStorage(lowerCaseSearchFieldValue);
     processGeneralSearchResults(lowerCaseSearchFieldValue, generalSearchResult);// calls function to process the Json and gets arrays with info to show on the screen 
+    window.location.href = "#/search";
 };
-
-async function getSearchResultsFromLocalStorage(searchValue){
-    const localStorageKey=searchValue;
-    const generalSearchResult = await JSON.parse(localStorage.getItem(localStorageKey));
-    console.log(generalSearchResult);
-    return generalSearchResult;
-    
-}
 
 
 export function handleExecuteBtn(event) {
