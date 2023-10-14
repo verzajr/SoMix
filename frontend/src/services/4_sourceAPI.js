@@ -1,6 +1,6 @@
 
 export async function API_GeneralSearch(searchValue){
-const url = `https://deezerdevs-deezer.p.rapidapi.com/search?q=${searchValue}`;    
+const url = `https://api.deezer.com/search?q=eminem${searchValue}`;    
 console.log(url)   
     const options = {
         method: 'GET',

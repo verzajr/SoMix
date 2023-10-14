@@ -5,15 +5,6 @@
 
 <html>  <!-- starts HTML structure -->
 
-<div id="dz-root"></div>
-<script src="https://e-cdn-files.dzcdn.net/js/min/dz.js"></script>
-<script>
-	DZ.init({
-		appId  : ' 633841',
-		channelUrl : 'https://somix.vercel.app//channel.html'
-	});
-</script>    
-    
     <head> <!-- defines what will be the overall style of the page and sets basic protocols -->
         <link rel="stylesheet" href="./styles/index.css" /> <!-- links page style to the .css file that contains the styles and is on the same folder -->
         <meta charset="UTF-8">
@@ -23,7 +14,35 @@
         <title>SoMix</title> <!-- Browser tab title -->
     </head>
 
+    <div id="dz-root"></div>
+    <script src="https://e-cdns-files.dzcdn.net/js/min/dz.js"></script>
+    <script>
+        DZ.init({
+            appId  : ' 633841',
+            channelUrl : 'https://somix.vercel.app/channel.html'
+        });
+    </script>
+    
+    <div id="dz-login"></div>
+    <script>
+        // First, initialize the JavaScript SDK
      
+        // Then, request the user to log in
+        DZ.login(function(response) {
+            if (response.authResponse) {
+                console.log('Welcome!  Fetching your information.... ');
+                DZ.api('/user/me', function(response) {
+                    console.log('Good to see you, ' + response.name + '.');
+                });
+            } else {
+                console.log('User cancelled login or did not fully authorize.');
+            }
+    }, {perms: 'basic_access,email'});
+    </script>
+        
+    
+
+
 <body>    
     <section class="app" id="app"></section>
     <script type="module" src="./index.js"></script>
