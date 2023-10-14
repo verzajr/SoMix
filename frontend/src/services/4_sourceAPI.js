@@ -26,9 +26,12 @@ console.log(url)
         console.error(error);
     } */
     // Get data from user with ID 5
-DZ.api('/search?q=eminem', function(response){
-	console.log(response);
+    let result = null;
+DZ.api(`/search?q=${searchValue}`, function(response){
+	console.log("response",response);
+    result=response;
 });
+    console.log("result",result);
 };
 
 export async function API_ArtistSearch(artistID){
