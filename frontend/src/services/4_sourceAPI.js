@@ -1,6 +1,12 @@
 
 export async function API_GeneralSearch(searchValue){
-const url = `https://api.deezer.com/search?q=eminem${searchValue}`;    
+
+    DZ.api(`/search?q=${searchValue}`, function(response){
+        const result = response.json();
+        console.log(result);
+        return(result);
+    });
+/* const url = `https://api.deezer.com/search?q=eminem${searchValue}`;    
 console.log(url)   
     const options = {
         method: 'GET',
@@ -17,7 +23,7 @@ console.log(url)
         return(result)
     } catch (error) {
         console.error(error);
-    }
+    } */
 };
 
 export async function API_ArtistSearch(artistID){
