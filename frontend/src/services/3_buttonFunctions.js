@@ -16,6 +16,7 @@ export function handleExecuteBtn(event) {
     const dropButton=target.parentNode;
     const optionsButton=dropButton.parentNode;
     const resultCard = optionsButton.parentNode;
+   /*  console.log('meu result card', resultCard); */
     const sourceURL=resultCard.id;
     console.log(`Source URL ${sourceURL}`)
     localStorage.setItem('executionSourceURL',sourceURL);
