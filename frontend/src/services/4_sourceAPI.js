@@ -7,7 +7,7 @@ export async function API_GeneralSearch(searchValue){
         return(result);
     });
     return (result); */
-const url = `https://api.deezer.com/search?q=${searchValue}`;    
+/* const url = `https://api.deezer.com/search?q=${searchValue}`;    
 console.log(url)   
     const options = {
         method: 'GET',
@@ -24,7 +24,11 @@ console.log(url)
         return(result)
     } catch (error) {
         console.error(error);
-    }
+    } */
+    // Get data from user with ID 5
+DZ.api('/user/5', function(response){
+	console.log("Name of user id 5", response.name);
+});
 };
 
 export async function API_ArtistSearch(artistID){
