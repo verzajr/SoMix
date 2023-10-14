@@ -3,14 +3,22 @@
 body { 
     background-color: #40261E;
     height: 100vh;
-    width: 100vw;
     padding: 0 0 0 0;
-    margin: 0 0 0 0; 
+    margin: 0 0 0 0;
+    display:grid;
+    grid-template-rows: max-content auto;
+    align-self: center;
+    justify-self: center;
     
     .app{
+
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 1;
+        grid-row-end: 2;
         display: grid;
-        grid-template-columns: 32vw 2vw 32vw 2vw 32vw; /* three columns for the search content results with 5% space between them */
-        grid-template-rows: max-content 10px 3px 5px max-content auto; /* three vertical divisions the midle one is the orange line dividing header from the rest */ 
+        grid-template-columns: fit-content auto fit-content auto fit-content; /* three columns for the search content results with 5% space between them */
+        grid-template-rows: max-content 1dvh 0.3dvh 0.5dvh max-content; /* three vertical divisions the midle one is the orange line dividing header from the rest */ 
     }
     
     .logo{
@@ -18,42 +26,42 @@ body {
         grid-column-end: 2;
         grid-row-start: 1;
         grid-row-end: 2;
-        margin: 10px 10px 10px 10px;
-        min-width: 64px;
-        max-width: 250px;
+        margin: 1dvh 0.6dvw 1dvh 0.6dvw;
+        min-width: 6.78dvw;
+        max-width: 26.5dvh;
         align-self:center;
         justify-self: start;
     }
 
     .button{
-        margin: 3px 3px 3px 3px;
+        margin: 0.3dvh 0.19dvw 0.3dvh 0.19dvw;
         background-color:#12B347;
         color: white;
-        box-shadow: 5px 5px 5px -3px black;
-        padding: 10px 10px 10px 10px;
-        font-size: 20px;
+        box-shadow: 0.5dvh 0.5dvh 0.5dvh -0.3dvh black;
+        padding: 1dvh 0.6dvw 1dvh 0.6dvw;
+        font-size: 1.2dvw;
         font-weight: normal;
         font-family: "Dosis", sans-serif;
         text-align: center;
         text-justify: distribute;
         border:#12B347;
-        border-radius: 4px;
+        border-radius: 0.5dvh;
         cursor:pointer;
     }
 
     .logOutButton{
-        margin: 3px 3px 3px 3px;
+        margin: 0.3dvh 0.19dvw 0.3dvh 0.19dvw;
         background-color:#8F8F8F;
         color: white;
-        box-shadow: 5px 5px 5px -3px black;
-        padding: 10px 15px 10px 15px;
-        font-size: 20px;
+        box-shadow: 0.5dvh 0.5dvh 0.5dvh -0.3dvh black;
+        padding: 1dvh 0.6dvw 1dvh 0.6dvw;
+        font-size: 1.2dvw;
         font-weight: normal;
         font-family: "Dosis", sans-serif;
         text-align: center;
         text-justify: distribute;
         border:#8F8F8F;
-        border-radius: 4px;
+        border-radius: 0.5dvh;
         cursor:pointer;
     }
 
@@ -63,7 +71,7 @@ body {
         grid-column-end: 6;
         grid-row-start: 1;
         grid-row-end: 2;
-        margin: 10px 10px 10px 10px;
+        margin: 1dvh 0.6dvw 1dvh 0.6dvw;
         height: fit-content;
         width: fit-content;
         justify-content: space-evenly;
@@ -84,7 +92,7 @@ body {
         grid-column-end: 2;
         grid-row-start: 4;
         grid-row-end: 6;
-        width: 470px;
+        width: 25dvw;
         align-self:center;
         justify-self: start;        
     }
@@ -105,9 +113,9 @@ body {
 
     .welcomeText{
         color: whitesmoke;
-        padding: 20px 20px 20px 20px;
+        padding: 2dvh 1.2dvw 2dvh 1.2dvw;
         font-family: "Dosis", sans-serif;
-        font-size: 2vw;
+        font-size: 2dvw;
         font-weight: bold;
         align-self: center;
         justify-self: center;     
@@ -118,7 +126,7 @@ body {
         grid-column-end: 4;
         grid-row-start: 5;
         grid-row-end: 6;
-        margin: 10px 10px 10px 10px;
+        margin: 1dvh 0.6dvw 1dvh 0.6dvw;
         height: fit-content;
         width: fit-content;
         display: flex;
@@ -131,13 +139,13 @@ body {
 
     .searchButton{
         background-color: #12B347;
-        border: 1px solid #12B347;
-        border-radius: 50px;
-        height: 50px;
-        width: 50px;
-        box-shadow: 5px 5px 5px -3px black;
-        margin: 10px 10px 10px 10px;
-        padding: 5px 5px 5px 5px;
+        border: 0.01dvh solid #12B347;
+        border-radius: 5.3dvh;
+        height: 5.3dvh;
+        width: 5.3dvh;
+        box-shadow: 0.5dvh 0.5dvh 0.5dvh -0.3dvh black;
+        margin: 1dvh 0.6dvw 1dvh 0.6dvw;
+        padding: 0.5dvh 0.3dvw 0.5dvh 0.3dvw;
         align-self: center;
         justify-self: end;
         align-content: center;
@@ -157,14 +165,14 @@ body {
 
     .formField{
         background-color: whitesmoke;
-        border-radius: 10px;
+        border-radius: 2dvh;
         border-color: whitesmoke;
-        height: 50;
-        width: 300;
-        padding: 10px 20px 10px 20px;
-        margin: 10px 10px 10px 10px;
+        height: 5.3dvh;
+        width: 19dvw;
+        padding: 1dvh 1.2dvw 1dvh 1.2dvw;
+        margin: 1dvh 0.6dvw 1dvh 0.6dvw;
         font-family: "Dosis", sans-serif;
-        font-size: 20px;
+        font-size: 2dvh;
         align-self: center;
     }
 
@@ -173,15 +181,16 @@ body {
         grid-column-end: 2;
         grid-row-start: 5;
         grid-row-end: 6;
-        padding: 5px 5px 5px 5px;
-        margin: 5px 5px 5px 5px;
+        padding: 0.5dvh 0.3dvw 0.5dvh 0.3dvw;
         background-color: rgba(99, 70, 45, 0.5);
-        border-radius: 10px;
+        border-radius: 2dvh;
         text-align: center;
         text-justify: distribute;
         display:block;
         align-content: space-evenly;
         justify-content: center;
+        width:30dvw;
+        justify-self: center;
     }
 
     .albumResultsTile{
@@ -189,15 +198,16 @@ body {
         grid-column-end: 4;
         grid-row-start: 5;
         grid-row-end: 6;
-        padding: 5px 5px 5px 5px;
-        margin: 5px 5px 5px 5px;
+        padding: 0.5dvh 0.3dvw 0.5dvh 0.3dvw;
         background-color: rgba(99, 70, 45, 0.5);
-        border-radius: 10px;
+        border-radius: 2dvh;
         text-align: center;
         text-justify: distribute;
         display:block;
         align-content: space-evenly;
         justify-content: center;
+        width:30dvw;
+        justify-self: center;
     }
 
     .songResultsTile{
@@ -205,20 +215,21 @@ body {
         grid-column-end: 6;
         grid-row-start: 5;
         grid-row-end: 6;
-        padding: 5px 5px 5px 5px;
-        margin: 5px 5px 5px 5px;
+        padding: 0.5dvh 0.3dvw 0.5dvh 0.3dvw;
         background-color: rgba(99, 70, 45, 0.5);
-        border-radius: 10px;
+        border-radius: 2dvh;
+        width:30dvw;
         text-align: center;
         text-justify: distribute;
         display:block;
         align-content: space-evenly;
         justify-content: center;
+        justify-self: center;
     }
 
     .resultTileTitle{
         color: whitesmoke;
-        padding: 20px 20px 20px 20px;
+        padding: 2dvh 1.2dvw 2dvh 1.2dvw;
         font-family: "Dosis", sans-serif;
         font-size: 3vw;
         font-weight: bold;
@@ -227,140 +238,288 @@ body {
     }
 
     .resultFrame{
-        margin: 5px 5px 5px 5px;
-        padding: 10px 10px 10px 10px;
-        border: 1px solid;
+        padding: 1dvh 0.6dvw 1dvh 0.6dvw;
+        border: 0.1dvh solid;
         border-color:#E6EDF5;
-        border-radius: 10px;
-        margin-bottom: 5px;
+        border-radius: 2dvh;
         display:flex;
         justify-content: space-between;
+        max-width: 30dvw;
+        margin-top: 0.5dvh;
+        margin-bottom: 0.5dvh;
     }
 
     /* // vou fazer outra classe para o executar, para achar ele e colocar um listener */
 
     .playerClass{
-        margin: 5px 5px 5px 5px;
-        padding: 10px 10px 10px 10px;
-        border: 1px solid;
+        margin: 0.5dvh 0.3dvw 0.5dvh 0.3dvw;
+        padding: 1dvh 0.6dvw 1dvh 0.6dvw;
+        border: 0.1dvh solid;
         border: color #e6edf5;;
-        border-radius: 10px;
-        margin-bottom: 5px;
+        border-radius: 2dvh;
         display:flex;
         justify-content: space-between;
     }
 
     .cardImage{
-        height: 80px;
-        width: 80px;
-        border-radius: 10px;
+        height: 8.5dvh;
+        width: 8.5dvh;
+        border-radius: 2dvh;
         align-self:center;
         justify-self:left;
     }
 
     .cardText{
-        font-size: 30px;
+        font-size: 3dvh;
         font-weight: normal;
         font-family: "Dosis", sans-serif;
         text-align: center;
-        margin: 5px 5px 5px 5px;
+        margin: 0.5dvh 0.3dvw 0.5dvh 0.3dvw;
         color: white;
         align-self:center;
         justify-self:left;
     }
 
-.dropbtn {
-    margin: 5px 5px 5px 5px;
-    width: 60px;
-    height: 60px;
-    align-self:center;
-    justify-self: right;
-    background-image: url("../icons/options.png");
-    background-color:rgba(0, 0, 0, 0);
-    border-radius: 10px;
-    cursor: pointer; 
-    border:none; 
-}
+    .dropbtn {
+        margin: 0.5dvh 0.3dvw 0.5dvh 0.3dvw;
+        width: 6.36dvh;
+        height: 3.81dvw;
+        align-self:center;
+        justify-self: right;
+        background-image: url("../icons/options.png");
+        background-color:rgba(0, 0, 0, 0);
+        border-radius: 2dvh;
+        cursor: pointer; 
+        border:none; 
+    }
 
-.dropdown {
+    .dropdown {
+        
+        position: relative;
+        display: inline-block;
+    }
+
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: rgba(99, 70, 45, 1);
+        min-width: 11.44dvw;
+        box-shadow: 0px 0.51dvw 1.02dvw 0px rgba(0,0,0,0.2);
+        border-radius: 2dvh;
+        z-index: 1;
+        font-size: 3dvh;
+        font-weight: normal;
+        font-family: "Dosis", sans-serif;
+    }
+
+    .dropdown-content a {
+        color: white;
+        margin: 0.5dvh 0.3dvw 0.5dvh 0.3dvw;
+        padding: 1dvh 0.6dvw 1dvh 0.6dvw;
+        border: 0.1dvh solid;
+        border-color:#E6EDF5;
+        text-decoration: none;
+        display: block;
+    }
+
+    .dropdown-content a:hover {
+        background-color: #40261E;
+        cursor: pointer; 
+    }
+
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+
+    .dropdown:hover .dropbtn {
+        background-color:rgba(99, 70, 45, 0.5);
+    }
+
+    .audioPlayer{
+        height: fit-content;
+        width: fit-content;
+        display: flex;
+        align-content: space-between;
+        justify-content: space-between;
+        align-self: center;
+        justify-self: center;
+    }
+
+    .playButton{
+        height: 7.4dvh;
+        width: 7.4dvh;
+        border: none;
+        background-color:rgba(99, 70, 45, 0);
+        background-image: url("../icons/playbutton.png");
+        background-repeat: no-repeat;
+        justify-self: center;
+    }
+
+    .pauseButton{
+        height: 6.36dvh;
+        width: 6.36dvh;
+        border: none;
+        background-color:rgba(99, 70, 45, 0);
+        background-image: url("../icons/pausebutton.png");
+        background-repeat: no-repeat;
+        justify-self: center;
+    }
+
+    .songPlayer {
+        grid-column-start: 1;
+        grid-column-end: 6;
+        grid-row-start: 5;
+        grid-row-end: 6;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        border-radius: 2dvh;
+        background-color:rgba(99, 70, 45, 0.5);
+        height: max-content;
+        width: max-content;
+        align-self: center;
+        justify-self: center;
+        z-index: 1;
+        }
+
+
+    .songPlayerBackground{
+        grid-column-start: 1;
+        grid-column-end: 6;
+        grid-row-start: 5;
+        grid-row-end: 6;
+        border-radius: 2dvh;
+        opacity: 0.5;
+        z-index: 0;
+        width: inherit;
+        align-self: center;
+        justify-self: center;
+    }
     
-    position: relative;
-    display: inline-block;
-}
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: rgba(99, 70, 45, 1);
-    min-width: 180px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    border-radius: 10px;
-    z-index: 1;
-    font-size: 30px;
-    font-weight: normal;
-    font-family: "Dosis", sans-serif;
-}
-
-.dropdown-content a {
-    color: white;
-    margin: 5px 5px 5px 5px;
-    padding: 10px 10px 10px 10px;
-    border: 1px solid;
-    border-color:#E6EDF5;
-    text-decoration: none;
-    display: block;
-}
-
-.dropdown-content a:hover {
-    background-color: #40261E;
-    cursor: pointer; 
-}
-
-.dropdown:hover .dropdown-content {
-    display: block;
-}
-
-.dropdown:hover .dropbtn {
-    background-color:rgba(99, 70, 45, 0.5);
-}
-
-.songPlayer{
-    background-color:rgba(99, 70, 45, 0.5);
-    grid-column-start: 3;
-    grid-column-end: 4;
-    grid-row-start: 4;
-    grid-row-end: 5
-};
-
-.audioPlayer{
-    height: fit-content;
-    width: fit-content;
+    .details {
     display: flex;
-    align-content: space-between;
-    justify-content: space-between;
-    align-self: center;
-    justify-self: center;
-}
-
-.playButton{
-    height: 70px;
-    width: 70px;
-    border: none;
-    background-color:rgba(99, 70, 45, 0);
-    background-image: url("../icons/playbutton.png");
-    background-repeat: no-repeat;
-    justify-self: center;
-}
-
-.pauseButton{
-    height: 60px;
-    width: 60px;
-    border: none;
-    background-color:rgba(99, 70, 45, 0);
-    background-image: url("../icons/pausebutton.png");
-    background-repeat: no-repeat;
-    justify-self: center;
-}
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 2.65dvh;
+    }
+    
+    .track-art {
+    margin: 25px;
+    height: 250px;
+    width: 250px;
+    background-image: URL(
+        "https://source.unsplash.com/Qrspubmx6kE/640x360");
+    background-size: cover;
+    background-position: center;
+    border-radius: 15%;
+    }
+    
+    /* Changing the font sizes to suitable ones */
+    .now-playing {
+    font-size: 1rem;
+    }
+    
+    .track-name {
+    font-size: 3rem;
+    }
+    
+    .track-artist {
+    font-size: 1.5rem;
+    }
+    
+    /* Using flex with the row direction to
+    align items in a horizontal direction */
+    .buttons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    }
+    
+    .playpause-track,
+    .prev-track,
+    .next-track {
+    padding: 25px;
+    opacity: 0.8;
+    
+    /* Smoothly transition the opacity */
+    transition: opacity .2s;
+    }
+    
+    /* Change the opacity when mouse is hovered */
+    .playpause-track:hover,
+    .prev-track:hover,
+    .next-track:hover {
+    opacity: 1.0;
+    }
+    
+    /* Define the slider width so that it scales properly */
+    .slider_container {
+    width: 75%;
+    max-width: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    }
+    
+    /* Modify the appearance of the slider */
+    .seek_slider, .volume_slider {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    height: 5px;
+    background: black;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+    }
+    
+    /* Modify the appearance of the slider thumb */
+    .seek_slider::-webkit-slider-thumb,
+    .volume_slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    background: white;
+    cursor: pointer;
+    border-radius: 50%;
+    }
+    
+    /* Change the opacity when mouse is hovered */
+    .seek_slider:hover,
+    .volume_slider:hover {
+    opacity: 1.0;
+    }
+    
+    .seek_slider {
+    width: 60%;
+    }
+    
+    .volume_slider {
+    width: 30%;
+    }
+    
+    .current-time,
+    .total-duration {
+    padding: 10px;
+    }
+    
+    i.fa-volume-down,
+    i.fa-volume-up {
+    padding: 10px;
+    }
+    
+    /* Change the mouse cursor to a pointer
+    when hovered over */
+    i.fa-play-circle,
+    i.fa-pause-circle,
+    i.fa-step-forward,
+    i.fa-step-backward {
+    cursor: pointer;
+    }
 
 }
 
@@ -371,9 +530,6 @@ footer{
     color: silver;
     font-size: 10px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    grid-column-start: 1;
-    grid-column-end: 6;
-    grid-row-start: 6;
-    grid-row-end: 7;
-    padding: 10px 10px 10px 10px;
+    grid-row-start: 2;
+    grid-row-end: 3;
 }

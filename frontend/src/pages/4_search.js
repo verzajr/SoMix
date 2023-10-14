@@ -45,6 +45,7 @@ const gatherCards = (resultsArray, referenceHTMLElement, cardType) => {
         allAlbums.forEach((e) => referenceHTMLElement.appendChild(createCard(e.album, e.image, e.executionURL)));
     };
     if (cardType === 'Tracks') {
+        console.log('MY RESULTS', resultsArray);
         const allTracks = resultsArray.map((e) => ({ track: e.title, image: e.album.cover, executionURL: e.preview }));
         allTracks.forEach((e) => referenceHTMLElement.appendChild(createCard(e.track, e.image, e.executionURL)));
     };
