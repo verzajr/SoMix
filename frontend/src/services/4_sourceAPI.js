@@ -1,19 +1,19 @@
 
 export async function API_GeneralSearch(searchValue){
-
+/* 
     let result = DZ.api(`/search?q=${searchValue}`, function(response){
         const result = response.json();
         console.log(result);
         return(result);
     });
-    return (result);
-/* const url = `https://api.deezer.com/search?q=eminem${searchValue}`;    
+    return (result); */
+const url = `https://api.deezer.com/search?q=${searchValue}`;    
 console.log(url)   
     const options = {
         method: 'GET',
         headers: {
-            'X-RapidAPI-Key': '1d264a42f2msha14051721f20260p181bf3jsn4abad0cd5de7',
-            'X-RapidAPI-Host': 'deezerdevs-deezer.p.rapidapi.com'
+            'Key': 'aac7dbc308adf1d76ae112d28116d481',
+            'Host': 'https://somix.vercel.app/'
         }
     };
     
@@ -24,7 +24,7 @@ console.log(url)
         return(result)
     } catch (error) {
         console.error(error);
-    } */
+    }
 };
 
 export async function API_ArtistSearch(artistID){
