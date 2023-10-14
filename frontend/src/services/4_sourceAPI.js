@@ -1,56 +1,25 @@
 
-export async function API_GeneralSearch(searchValue){
-/* 
-    let result = DZ.api(`/search?q=${searchValue}`, function(response){
-        const result = response.json();
-        console.log(result);
-        return(result);
+export async function API_GeneralSearch(searchValue) {
+
+    const result = DZ.api(`/search?q=${searchValue}`, function (response) {
+        localStorage.setItem('searchResults', JSON.stringify(response))
     });
-    return (result); */
-/* const url = `https://api.deezer.com/search?q=${searchValue}`;    
-console.log(url)   
-    const options = {
-        method: 'GET',
-        headers: {
-            'Key': 'aac7dbc308adf1d76ae112d28116d481',
-            'Host': 'https://somix.vercel.app/'
-        }
-    };
-    
-    try {
-        const response = await fetch(url, options);
-        const result = await response.json();
-        console.log(result);
-        return(result)
-    } catch (error) {
-        console.error(error);
-    } */
-    // Get data from user with ID 
-DZ.api(`/search?q=${searchValue}`, function(response){
-	console.log("response",response);
-    localStorage.setItem('searchResults',JSON.stringify(response))
-    let result1=JSON.parse(localStorage.getItem('searchResults'))
-    console.log("result1", result1);
-});
 
-let result=JSON.parse(localStorage.getItem('searchResults'));
-console.log("results",result);
-
-return result
-
+    console.log("result", result)
+    return result;
 };
 
-export async function API_ArtistSearch(artistID){
+export async function API_ArtistSearch(artistID) {
     const url = `https://deezerdevs-deezer.p.rapidapi.com/artist/${artistID}`;
-    console.log(url) 
-    const options = {  
+    console.log(url)
+    const options = {
         method: 'GET',
         headers: {
             'X-RapidAPI-Key': '1d264a42f2msha14051721f20260p181bf3jsn4abad0cd5de7',
             'X-RapidAPI-Host': 'deezerdevs-deezer.p.rapidapi.com'
         }
     };
-    
+
     try {
         const response = await fetch(url, options);
         const result = await response.json();
@@ -60,7 +29,7 @@ export async function API_ArtistSearch(artistID){
     }
 };
 
-export async function API_AlbumSearch(albumID){
+export async function API_AlbumSearch(albumID) {
     const url = `https://deezerdevs-deezer.p.rapidapi.com/album/${albumID}`;
     console.log(url)
     const options = {
@@ -70,7 +39,7 @@ export async function API_AlbumSearch(albumID){
             'X-RapidAPI-Host': 'deezerdevs-deezer.p.rapidapi.com'
         }
     };
-    
+
     try {
         const response = await fetch(url, options);
         const result = await response.json();
@@ -81,9 +50,9 @@ export async function API_AlbumSearch(albumID){
 
 };
 
-export async function API_TrackSearch(trackID){
+export async function API_TrackSearch(trackID) {
     const url = `https://deezerdevs-deezer.p.rapidapi.com/track/${trackID}`;
-    console.log(url) 
+    console.log(url)
     const options = {
         method: 'GET',
         headers: {
@@ -91,7 +60,7 @@ export async function API_TrackSearch(trackID){
             'X-RapidAPI-Host': 'deezerdevs-deezer.p.rapidapi.com'
         }
     };
-    
+
     try {
         const response = await fetch(url, options);
         const result = await response.json();
