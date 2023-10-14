@@ -1,15 +1,18 @@
 import { API_GeneralSearch, API_ArtistSearch, API_AlbumSearch, API_TrackSearch } from "./4_sourceAPI.js";
 import processGeneralSearchResults from "./5_generalSearchDataProcessing.js";
 
-function getSearchResultsFromLocalStorage(searchValue){
-    console.log(searchValue);
+/* function getSearchResultsFromLocalStorage(searchValue){
+    const params = window.location.searchParams;
+    searchValue = params.get('q'); 
+    console.log('meu search value', searchValue);
+
     const generalSearchResult = JSON.parse(localStorage.getItem(searchValue));
     console.log('resultado de general', generalSearchResult);
     return generalSearchResult;
     
-}
+} */
 
-export function handleSearchClick() {
+/* export function handleSearchClick() {
 
     const searchFieldValue = document.getElementById("searchField").value; // gets value from search field
     const lowerCaseSearchFieldValue= searchFieldValue.toLowerCase();
@@ -19,6 +22,21 @@ export function handleSearchClick() {
 
     const generalSearchResult = getSearchResultsFromLocalStorage(lowerCaseSearchFieldValue);
     processGeneralSearchResults(lowerCaseSearchFieldValue, generalSearchResult);// calls function to process the Json and gets arrays with info to show on the screen 
+    window.location.href = "#/search";
+}; */
+
+
+export function handleSearchClick() {
+
+    const searchFieldValue = document.getElementById("searchField").value; // gets value from search field
+    const lowerCaseSearchFieldValue= searchFieldValue.toLowerCase();
+    console.log(`Handling Search for "${lowerCaseSearchFieldValue}"...`);
+
+    DZ.api(`/search?q=${lowerCaseSearchFieldValue}`, function (response) {
+        localStorage.setItem(`${lowerCaseSearchFieldValue}`, JSON.stringify(response));
+        return response;
+    });
+
     window.location.href = "#/search";
 };
 
