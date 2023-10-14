@@ -1,11 +1,12 @@
 
 export async function API_GeneralSearch(searchValue){
 
-    DZ.api(`/search?q=${searchValue}`, function(response){
+    let result = DZ.api(`/search?q=${searchValue}`, function(response){
         const result = response.json();
         console.log(result);
         return(result);
     });
+    return (result);
 /* const url = `https://api.deezer.com/search?q=eminem${searchValue}`;    
 console.log(url)   
     const options = {
