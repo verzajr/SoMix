@@ -1,6 +1,5 @@
 
-export async function API_GeneralSearch(searchValue) {
-
+export function API_GeneralSearch(searchValue) {
 
     DZ.api(`/search?q=${searchValue}`, function (response) {
         localStorage.setItem(searchValue, JSON.stringify(response));
