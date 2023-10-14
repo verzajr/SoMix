@@ -6,7 +6,7 @@ import { buildSearchPage } from "./pages/4_search.js";
 import { buildSongPlayerPage } from "./pages/5_player_song.js";
 
 //clears local storage
-localStorage.clear()
+localStorage.clear();
 
 
 //Parses the location string to get the desired path
@@ -20,7 +20,6 @@ function pagebuilder(path) {
     switch (path) {
         case "/":
             buildHomePage();
-            localStorage.clear();
             break;
         case "/search": 
             buildSearchPage();
