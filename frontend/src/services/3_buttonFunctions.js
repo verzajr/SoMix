@@ -7,12 +7,19 @@ export async function handleSearchClick() {
     const lowerCaseSearchFieldValue= searchFieldValue.toLowerCase();
     console.log(`Handling Search for "${lowerCaseSearchFieldValue}"...`);
     await API_GeneralSearch(lowerCaseSearchFieldValue); // calls API function to search the API repository and gets a Json with results
-    const localStorageKey=`searchResultsFor_${searchFieldValue}`;
-    const generalSearchResult = JSON.parse(localStorage.getItem(localStorageKey));
-    console.log(generalSearchResult);
-    processGeneralSearchResults(searchFieldValue, generalSearchResult);// calls function to process the Json and gets arrays with info to show on the screen
     window.location.href = "#/search";
+    const generalSearchResult = getSearchResultsFromLocalStorage(lowerCaseSearchFieldValue);
+    processGeneralSearchResults(searchValue, generalSearchResult);// calls function to process the Json and gets arrays with info to show on the screen 
 };
+
+async function getSearchResultsFromLocalStorage(searchValue){
+    const localStorageKey=`searchResultsFor_${searchValue}`;
+    const generalSearchResult = await JSON.parse(localStorage.getItem(localStorageKey));
+    console.log(generalSearchResult);
+    return generalSearchResult;
+    
+}
+
 
 export function handleExecuteBtn(event) {
     window.location.href = "#/songplayer";
