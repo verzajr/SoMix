@@ -1,13 +1,9 @@
 
 export async function API_GeneralSearch(searchValue) {
 
-    const result = DZ.api(`/search?q=${searchValue}`, function (response) {
-        localStorage.setItem('searchResults', JSON.stringify(response))
-        return response;
+    DZ.api(`/search?q=${searchValue}`, function (response) {
+        localStorage.setItem('searchResults', JSON.stringify(response));
     });
-
-    console.log("result", result)
-    return result;
 };
 
 export async function API_ArtistSearch(artistID) {
