@@ -9,11 +9,11 @@ export async function handleSearchClick() {
     await API_GeneralSearch(lowerCaseSearchFieldValue); // calls API function to search the API repository and gets a Json with results
     window.location.href = "#/search";
     const generalSearchResult = getSearchResultsFromLocalStorage(lowerCaseSearchFieldValue);
-    processGeneralSearchResults(searchValue, generalSearchResult);// calls function to process the Json and gets arrays with info to show on the screen 
+    processGeneralSearchResults(lowerCaseSearchFieldValue, generalSearchResult);// calls function to process the Json and gets arrays with info to show on the screen 
 };
 
 async function getSearchResultsFromLocalStorage(searchValue){
-    const localStorageKey=`searchResultsFor_${searchValue}`;
+    const localStorageKey=searchValue;
     const generalSearchResult = await JSON.parse(localStorage.getItem(localStorageKey));
     console.log(generalSearchResult);
     return generalSearchResult;
