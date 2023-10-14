@@ -3,7 +3,6 @@ import processGeneralSearchResults from "./5_generalSearchDataProcessing.js";
 
 export function handleSearchClick() {
 
-    localStorage.setItem('searchResults','');
     const searchFieldValue = document.getElementById("searchField").value; // gets value from search field
     console.log(`Handling Search for "${searchFieldValue}"...`);
     API_GeneralSearch(searchFieldValue); // calls API function to search the API repository and gets a Json with results
