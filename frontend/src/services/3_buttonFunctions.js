@@ -1,13 +1,14 @@
 import { API_GeneralSearch, API_ArtistSearch, API_AlbumSearch, API_TrackSearch } from "./4_sourceAPI.js";
 import processGeneralSearchResults from "./5_generalSearchDataProcessing.js";
 
-export function handleSearchClick() {
+export async function handleSearchClick() {
 
     const searchFieldValue = document.getElementById("searchField").value; // gets value from search field
-    console.log(`Handling Search for "${searchFieldValue}"...`);
-    API_GeneralSearch(searchFieldValue); // calls API function to search the API repository and gets a Json with results
-    const localStorareKey=`searchResultsFor_${searchFieldValue}`;
-    const generalSearchResult = JSON.parse(localStorage.getItem(localStorareKey));
+    const lowerCaseSearchFieldValue= searchFieldValue.toLowerCase();
+    console.log(`Handling Search for "${lowerCaseSearchFieldValue}"...`);
+    await API_GeneralSearch(lowerCaseSearchFieldValue); // calls API function to search the API repository and gets a Json with results
+    const localStorageKey=`searchResultsFor_${searchFieldValue}`;
+    const generalSearchResult = JSON.parse(localStorage.getItem(localStorageKey));
     console.log(generalSearchResult);
     processGeneralSearchResults(searchFieldValue, generalSearchResult);// calls function to process the Json and gets arrays with info to show on the screen
     window.location.href = "#/search";
