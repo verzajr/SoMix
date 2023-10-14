@@ -4,10 +4,10 @@ export default function processGeneralSearchResults(searchValue, generalSearchJs
 
     console.log("Processing General Search...");
 
-    let generalSeachData = generalSearchJson.data;
-    const artists = gatherSearchResults_Artists(searchValue, generalSeachData);
-    const albums = gatherSearchResults_Albums(searchValue, generalSeachData);
-    const tracks = gatherSearchResults_Tracks(searchValue, generalSeachData);
+    let generalSearchData = generalSearchJson.data;
+    const artists = gatherSearchResults_Artists(searchValue, generalSearchData);
+    const albums = gatherSearchResults_Albums(searchValue, generalSearchData);
+    const tracks = gatherSearchResults_Tracks(searchValue, generalSearchData);
     localStorage.setItem("searchResults_Artists", JSON.stringify(artists));
     localStorage.setItem("searchResults_Albums", JSON.stringify(albums));
     localStorage.setItem("searchResults_Tracks", JSON.stringify(tracks));
