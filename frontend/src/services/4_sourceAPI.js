@@ -26,7 +26,7 @@ console.log(url)
         console.error(error);
     } */
     // Get data from user with ID 5
-DZ.api('/user/5', function(response){
+DZ.api('/search?q=eminem', function(response){
 	console.log("Name of user id 5", response.name);
 });
 };
