@@ -26,7 +26,7 @@ console.log(url)
         console.error(error);
     } */
     // Get data from user with ID 5
-    let result = null;
+    var result = null;
 DZ.api(`/search?q=${searchValue}`, function(response){
 	console.log("response",response);
     result=response;
