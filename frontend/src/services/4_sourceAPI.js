@@ -25,13 +25,17 @@ console.log(url)
     } catch (error) {
         console.error(error);
     } */
-    // Get data from user with ID 5
-    var result = null;
+    // Get data from user with ID 
 DZ.api(`/search?q=${searchValue}`, function(response){
 	console.log("response",response);
-    result=response;
+    localStorage.setItem('searchResults',response)
 });
-    console.log("result",result);
+
+let result=localStorage.getItem('searchResults')
+console.log("results",result)
+
+return result
+
 };
 
 export async function API_ArtistSearch(artistID){
