@@ -7,22 +7,26 @@ export async function API_GeneralSearch(searchValue) {
 };
 
 
-export async function API_ArtistSearch(artistID) {
+export function API_ArtistSearch(artistID) {
 
     DZ.api(`/artist/${artistID}`, function (response) {
         localStorage.setItem(`${artistID}`, JSON.stringify(response))
     });
+
 };
 
-export async function API_AlbumSearch(albumID) {
+export function API_AlbumSearch(albumID) {
 
     DZ.api(`/album/${albumID}`, function (response) {
         localStorage.setItem(`${albumID}`, JSON.stringify(response))
     });
+
 };
 
-export async function API_TrackSearch(trackID) {
+export function API_TrackSearch(trackID) {
+    
     DZ.api(`/track/${trackID}`, function (response) {
         localStorage.setItem(`${trackID}`, JSON.stringify(response))
     });
+
 };
