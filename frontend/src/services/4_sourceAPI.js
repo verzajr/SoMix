@@ -1,7 +1,6 @@
 
 export async function API_GeneralSearch(searchValue) {
 
-    localStorage.removeItem('searchResults');
 
     DZ.api(`/search?q=${searchValue}`, function (response) {
         localStorage.setItem(`searchResultsFor_${searchValue}`, JSON.stringify(response));
