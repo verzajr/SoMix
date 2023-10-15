@@ -28,6 +28,7 @@ export async function handleSearchClick() {
 
     while (!resultsDataReady){
         console.log("API Data pending...");
+        resultsDataReady = localStorage.getItem("API_Data_Ready");
     };
 
     window.location.href = "#/search";
