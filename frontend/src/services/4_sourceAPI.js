@@ -1,12 +1,12 @@
 
-export function API_GeneralSearch(searchValue, callback) {
+export async function API_GeneralSearch(searchValue, callback) {
     let result={};
-    DZ.api(`/search?q=${searchValue}`, async function (response) {
+    await DZ.api(`/search?q=${searchValue}`,  function (response) {
         console.log("API response",response);
-        result =  await response;
-        console.log("API result",response);
+        result =  response;
+        console.log("API result",result);
         if (typeof callback === "function") {
-           await callback(searchValue, result);
+            callback(searchValue, result);
         };
     });
 };
