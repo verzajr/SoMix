@@ -35,4 +35,6 @@ export async function API_TrackSearch(trackID) {
         localStorage.setItem(`searchResultsFor_${trackID}`, JSON.stringify(response));
     });
 
+    console.log('minha response', response);
+
 };
