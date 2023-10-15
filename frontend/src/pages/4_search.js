@@ -2,11 +2,11 @@ import { createCustomHTMLElement, createImageElement } from "../services/6_HTMLb
 import { handleExecuteBtn } from "../services/3_buttonFunctions.js";
 import processGeneralSearchResults from "../services/5_generalSearchDataProcessing.js";
 
-function getSearchResultsFromLocalStorage(searchValue){
+async function getSearchResultsFromLocalStorage(searchValue){
     
     console.log('meu search value', searchValue);
 
-    const generalSearchResult = localStorage.getItem('searchResult');
+    let generalSearchResult = await JSON.parse(localStorage.getItem('searchResult'));
     console.log('resultado de general', generalSearchResult);
     return generalSearchResult;
     
