@@ -62,7 +62,7 @@ function createPlayer(currentSong) {
     const songPlayer = document.getElementsByClassName('songPlayer')[0];
     const htmlAudio = songPlayer.appendChild(createCustomHTMLElement('audio', 'audioPlayer', ''));
     const source = htmlAudio.appendChild(createCustomHTMLElement('source', '', ''));
-    const url = currentSong.preview;
+    const url = currentSong[0].preview;
     source.setAttribute('src', url);
     source.setAttribute('type', 'audio/mpeg');
 
