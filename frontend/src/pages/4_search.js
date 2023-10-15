@@ -12,7 +12,7 @@ const createOptionsButtonElement = () => {
         const dropDownContent = optionsButton.appendChild(createCustomHTMLElement('div', 'dropdown-content',''));
             
             const executeButton = dropDownContent.appendChild(createCustomHTMLElement('a','resultFrame','Executar'));
-            executeButton.addEventListener('click', async () => {await handleExecuteBtn()});
+            executeButton.addEventListener('click', handleExecuteBtn);
 
             const addFavoriteButton = dropDownContent.appendChild(createCustomHTMLElement('a','resultFrame','Adicionar aos favoritos'));
             addFavoriteButton.setAttribute('href', '#/favoritesongs')
