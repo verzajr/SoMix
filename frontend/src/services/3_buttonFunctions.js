@@ -22,10 +22,21 @@ export async function handleSearchClick() {
     const searchFieldValue = document.getElementById("searchField").value; // gets value from search field
     const lowerCaseSearchFieldValue= searchFieldValue.toLowerCase();
     console.log(`Handling Search for "${lowerCaseSearchFieldValue}"...`);
-    localStorage.setItem("searchValue",lowerCaseSearchFieldValue);
-    API_GeneralSearch(lowerCaseSearchFieldValue, processGeneralSearchResults); // calls API function to search the API repository and gets a Json with results
-     
-    window.location.href = "#/search";
+
+    localStorage.setItem("API_Data_Ready","NotReady");
+    let resultsDataReady=localStorage.getItem("API_Data_Ready");
+    
+    if (resultsDataReady==="NotReady"){
+        API_GeneralSearch(lowerCaseSearchFieldValue, processGeneralSearchResults); // calls API function to search the API repository and gets a Json with results
+    };
+    resultsDataReady=localStorage.getItem("API_Data_Ready");
+
+    if (resultsDataReady==="Ready"){
+        window.location.href = "#/search";
+    } else {
+        handleSearchClick();
+    };
+
 };
 
 
