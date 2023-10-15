@@ -350,7 +350,6 @@ body {
         width: 7.4dvh;
         border: none;
         background-color:rgba(99, 70, 45, 0);
-        background-image: url("../icons/playbutton.png");
         background-repeat: no-repeat;
         justify-self: center;
         align-self: center;
@@ -364,8 +363,6 @@ body {
         width: 6.36dvh;
         border: none;
         background-color:rgba(99, 70, 45, 0);
-        background-image: url("../icons/pausebutton.png");
-        background-repeat: no-repeat;
         justify-self: center;
         align-self: center;
         grid-column-start: 4;

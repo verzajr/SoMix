@@ -166,8 +166,12 @@ export const executeSongComponent = {
                     <i class="fa fa-step-backward fa-2x"></i>
                     <img src="../icons/rewindbutton.png">
                 </div>
-                <button class="playButton" id="playButton"></button>
-                <button class="pauseButton" id="pauseButton"></button>
+                <button class="playButton" id="playButton">
+                    <img class="playButton" src="../icons/playbutton.png>
+                </button>
+                <button class="pauseButton" id="pauseButton">
+                    <img class="pauseButton" src="../icons/pausebutton.png>
+                </button>
                 <div class="next-track" onclick="nextTrack()">
                     <i class="fa fa-step-forward fa-2x"></i>
                     <img src="../icons/fasforwardbutton.png">
