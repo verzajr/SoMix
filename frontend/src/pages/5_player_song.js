@@ -89,12 +89,13 @@ function createButtonsAndPlaylist(currentSong) {
     let curr_time = document.querySelector(".current-time");
     let total_duration = document.querySelector(".total-duration");
 
-    track_art.setAttribute("src", `${currentSong[0].album.cover_xl}`);
+    track_art.setAttribute("src", `${currentSong[0].album.cover}`);
+    console.log(`${currentSong[0].album.cover}`);
     track_name.innerHTML = currentSong[0].title;
     track_artist.innerHTML=currentSong[0].artist.name;
     now_playing.innerHTML="playing 1 of 1";
     let total_duration_min = Number(currentSong[0].duration) % 60;
-    let total_duration_sec = Number(((currentSong[0].duration) - ((currentSong[0].duration)%60))*60);
+    let total_duration_sec = Number(((currentSong[0].duration) - (currentSong[0].duration)*60));
     total_duration.innerHTML= total_duration_min + ":" + total_duration_sec;
     curr_time.innerHTML=htmlAudio.currentTime;
 
@@ -140,7 +141,7 @@ export const executeSongComponent = {
             <div id='audioControls'>
                 <div class="details">
                     <div class="now-playing">PLAYING x OF y</div>
-                    <div class="track-art"></div>
+                    <img class="track-art"></img>
                     <div class="track-name">Track Name</div>
                     <div class="track-artist">Track Artist</div>
                 </div>
