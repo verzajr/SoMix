@@ -425,8 +425,8 @@ body {
     
     /* Changing the font sizes to suitable ones */
     .now-playing {
-        font-size: 1dvh;
-        font-weight: normal;
+        font-size: 2dvh;
+        font-weight: bold;
         font-family: "Dosis", sans-serif;
         text-align: center;
         margin: 0.5dvh 0.3dvw 0.5dvh 0.3dvw;

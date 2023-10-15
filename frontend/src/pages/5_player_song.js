@@ -153,19 +153,6 @@ export const executeSongComponent = {
                     <div class="track-name">Track Name</div>
                     <div class="track-artist">Track Artist</div>
                 </div>
-
-                <div class="buttons" id="controlButtons">     <!-- Define the section for displaying track buttons -->
-                    <div class="prev-track" onclick="prevTrack()">
-                        <i class="fa fa-step-backward fa-2x"></i>
-                        <img src="../icons/rewindbutton.png">
-                    </div>
-                    <button class="playButton" id="playButton"></button>
-                    <button class="pauseButton" id="pauseButton"></button>
-                    <div class="next-track" onclick="nextTrack()">
-                        <i class="fa fa-step-forward fa-2x"></i>
-                        <img src="../icons/fasforwardbutton.png">
-                    </div>
-                </div>
                 <div class="slider_container">
                     <span class="current-time" class="time">0:00</span>
                     <input type="range" class="seek_slider" max="100" value="0">
@@ -173,6 +160,24 @@ export const executeSongComponent = {
                     <output id="volume_output">100</output>
                     <input type="range" class="volume_slider" max="100" value="100">
                 </div>
+                <div class="buttons" id="controlButtons">     <!-- Define the section for displaying track buttons -->
+                <div class="prev-track" onclick="prevTrack()">
+                    <i class="fa fa-step-backward fa-2x"></i>
+                    <img src="../icons/rewindbutton.png">
+                </div>
+                <button class="playButton" id="playButton">
+                    <svg><svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M25 50C38.8075 50 50 38.8075 50 25C50 11.1925 38.8075 0 25 0C11.1925 0 0 11.1925 0 25C0 38.8075 11.1925 50 25 50Z" fill="#12B347"/>
+                    <path d="M33.535 27.6475L21.735 34.615C19.835 35.735 17.5 34.275 17.5 31.965V18.035C17.5 15.725 19.835 14.2675 21.735 15.3875L33.535 22.355C35.4875 23.51 35.4875 26.495 33.535 27.65V27.6475Z" fill="white"/>
+                    </svg>
+                    </svg>
+                </button>
+                <button class="pauseButton" id="pauseButton"></button>
+                <div class="next-track" onclick="nextTrack()">
+                    <i class="fa fa-step-forward fa-2x"></i>
+                    <img src="../icons/fasforwardbutton.png">
+                </div>
+            </div>
             </div>
         </div>
         `
