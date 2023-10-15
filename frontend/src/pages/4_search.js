@@ -24,32 +24,39 @@ const createOptionsButtonElement = () => {
 };
 
 
-const createCard = (element, image, id, cardType) => {
+const createCard = (element, image, id) => {
 
     const resultCard = createCustomHTMLElement('div', 'resultFrame', "");
-    resultCard.setAttribute('id', id);
-    resultCard.setAttribute('name', cardType);
+    resultCard.setAttribute('id', `${id}`);
+    resultCard.setAttribute('name', `${image}`);
+   /*  resultCard.setAttribute('name', cardType); */
     resultCard.appendChild(createImageElement(image));
     resultCard.appendChild(createCustomHTMLElement('p', 'cardText', element));
     resultCard.appendChild(createOptionsButtonElement());
     return resultCard;
 };
 
+
 const gatherCards = (resultsArray, referenceHTMLElement, cardType) => {
     console.log(`Gathering ${cardType} cards...`);
     if (cardType === 'Artists') {
-        const allArtists = resultsArray.map((e) => ({ artist: e.artist.name, image: e.artist.picture, executionURL: e.artist.id }));
-        allArtists.forEach((e) => referenceHTMLElement.appendChild(createCard(e.artist, e.image, e.executionURL)));
+        const allArtists = resultsArray.map((e) => ({ artist: e.artist.name, image: e.artist.picture, id: e.artist.id }));
+        allArtists.forEach((e) => referenceHTMLElement.appendChild(createCard(e.artist, e.image, e.id)));
     };
     if (cardType === 'Albums') {
-        const allAlbums = resultsArray.map((e) => ({ album: e.album.title, image: e.album.cover, executionURL: e.album.id }));
-        allAlbums.forEach((e) => referenceHTMLElement.appendChild(createCard(e.album, e.image, e.executionURL)));
+        const allAlbums = resultsArray.map((e) => ({ album: e.album.title, image: e.album.cover, id: e.album.id }));
+        allAlbums.forEach((e) => referenceHTMLElement.appendChild(createCard(e.album, e.image, e.id)));
     };
     if (cardType === 'Tracks') {
         console.log('MY RESULTS', resultsArray);
-        const allTracks = resultsArray.map((e) => ({ track: e.title, image: e.album.cover, executionURL: e.id }));
+        const allTracks = resultsArray.map((e) => ({ track: e.title, image: e.album.cover, id: e.id }));
         allTracks.forEach((e) => referenceHTMLElement.appendChild(createCard(e.track, e.image, e.id)));
     };
+  /*   if (cardType === 'Tracks') {
+        console.log('MY RESULTS', resultsArray);
+        const allTracks = resultsArray.map((e) => ({ track: e.title, image: e.album.cover, executionURL: e.preview }));
+        allTracks.forEach((e) => referenceHTMLElement.appendChild(createCard(e.track, e.image, e.id)));
+    }; */
 
 }
 
