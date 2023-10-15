@@ -93,6 +93,7 @@ function createButtonsAndPlaylist(currentSong, trackIMAGE) {
 
     // Define the list of tracks that have to be played
     let track_list = currentSong;
+    let duration = currentSong[0];
 
     function playTrack(audio) {
         callPlayButton(audio)
@@ -102,15 +103,15 @@ function createButtonsAndPlaylist(currentSong, trackIMAGE) {
         let seekPosition = 0;
     
         // Check if the current track duration is a legible number
-        if (!isNaN(curr_track.duration)) {
-            seekPosition = curr_track.currentTime * (100 / curr_track.duration);
+        if (!isNaN(duration)) {
+            seekPosition = curr_track.currentTime * (100 / duration);
             seek_slider.value = seekPosition;
     
             // Calculate the time left and the total duration
             let currentMinutes = Math.floor(curr_track.currentTime / 60);
             let currentSeconds = Math.floor(curr_track.currentTime - currentMinutes * 60);
-            let durationMinutes = Math.floor(curr_track.duration / 60);
-            let durationSeconds = Math.floor(curr_track.duration - durationMinutes * 60);
+            let durationMinutes = Math.floor(duration / 60);
+            let durationSeconds = Math.floor(duration - durationMinutes * 60);
     
             // Add a zero to the single digit time values
             if (currentSeconds < 10) { currentSeconds = "0" + currentSeconds; }
@@ -165,7 +166,7 @@ function createButtonsAndPlaylist(currentSong, trackIMAGE) {
         }
 
         function seekTo() {
-            const song_seekto = curr_track.duration * (seek_slider.value / 100);
+            const song_seekto = duration * (seek_slider.value / 100);
             curr_track.currentTime = song_seekto
         }
 
