@@ -391,7 +391,6 @@ body {
         grid-row-start: 5;
         grid-row-end: 6;
         border-radius: 2dvh;
-        opacity: 0.5;
         z-index: 0;
         width: inherit;
         align-self: center;
@@ -411,7 +410,7 @@ body {
     .track-art {
     margin: 25px;
     height: 250px;
-    width: 250px;
+    width: 20dvw;
     background-size: cover;
     background-position: center;
     border-radius: 15%;
@@ -498,7 +497,8 @@ body {
     width: 75%;
     max-width: 400px;
     display: flex;
-    justify-content: center;
+    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
     }
     
