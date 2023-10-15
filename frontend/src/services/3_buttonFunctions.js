@@ -12,9 +12,6 @@ export async function handleSearchClick() {
 };
 
 function changeDirection() {
-    window.location.assign = "#/songplayer";
-    console.log('it assigned to /songplayer');
-
     window.location.href = "#/songplayer";
     console.log('it used HREF reference');
 }
@@ -30,9 +27,14 @@ export async function handleExecuteBtn(event) {
     /* const url = resultCard.id;
     localStorage.setItem('Execute_url',url); */
 
-    const id = resultCard.id;
-    console.log(`Execute ID ${id}`)
-    localStorage.setItem('Execute ID',id);
+    const trackID = resultCard.id;
+    console.log(`trackID is ${trackID}`)
+    localStorage.setItem('trackID',trackID);
+
+    const trackIMAGE = resultCard.name;
+    console.log(`trackIMAGE is ${trackIMAGE}`)
+    localStorage.setItem('trackIMAGE',trackIMAGE);
+
 
     await API_TrackSearch(id);
     console.log('Found a song ------');
