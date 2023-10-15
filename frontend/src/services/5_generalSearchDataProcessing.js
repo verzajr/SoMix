@@ -11,8 +11,9 @@ export default async function processGeneralSearchResults(searchValue, generalSe
     localStorage.setItem("searchResults_Artists", JSON.stringify(artists));
     localStorage.setItem("searchResults_Albums", JSON.stringify(albums));
     localStorage.setItem("searchResults_Tracks", JSON.stringify(tracks));
-    localStorage.setItem("API_Data_Ready","Ready");
-    console.log("API Data ready from the Data Function");
+/*     localStorage.setItem("API_Data_Ready","Ready"); */
+    console.log("API Data ready from data function")
+    window.location.href = "#/search";
 };
 
 function gatherSearchResults_Artists(searchValue, results){
