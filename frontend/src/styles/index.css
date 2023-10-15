@@ -396,7 +396,7 @@ body {
         width: inherit;
         align-self: center;
         justify-self: center;
-        max-height: 67.7dvh;
+        max-height: 80dvh;
         clip:auto;
     }
     
@@ -451,6 +451,7 @@ body {
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: space-evenly;
     }
     
     .playpause-track,
@@ -567,7 +568,8 @@ footer{
     background-color: #26355E;
     padding: 1dvh 0.6dvw 1dvh 0.6dvw;
     color: silver;
-    font-size: 2dvh;
+    font-size: 1dvh;
+    min-height: 2dvh;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     grid-row-start: 2;
     grid-row-end: 3;

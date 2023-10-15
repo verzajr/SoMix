@@ -155,7 +155,7 @@ export const executeSongComponent = {
                     <div class="track-artist">Track Artist</div>
                 </div>
 
-                <div class="buttons" id="controlButtons>     <!-- Define the section for displaying track buttons -->
+                <div class="buttons" id="controlButtons">     <!-- Define the section for displaying track buttons -->
                     <div class="prev-track" onclick="prevTrack()">
                         <i class="fa fa-step-backward fa-2x"></i>
                     </div>
