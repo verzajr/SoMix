@@ -66,10 +66,9 @@ function createPlayer(currentSong) {
     source.setAttribute('type', 'audio/mpeg');
 
     //building control buttons
-    const controlButtons = document.getElementById("controlButtons");
-    const playButton = controlButtons.appendChild(createCustomHTMLElement('button', 'playButton', ''));
+    const playButton = document.getElementById("playButton");
     playButton.addEventListener('click', () => { callPlayButton(htmlAudio) });
-    const pauseButton = controlButtons.appendChild(createCustomHTMLElement('button', 'pauseButton', ''));
+    const pauseButton = document.getElementById("pauseButton");
     pauseButton.addEventListener('click', () => { callPauseButton(htmlAudio) });
     document.getElementsByClassName('pauseButton')[0].style.display = "none";
 };
@@ -159,17 +158,19 @@ export const executeSongComponent = {
                     <div class="prev-track" onclick="prevTrack()">
                         <i class="fa fa-step-backward fa-2x"></i>
                     </div>
-
+                    <button class="playButton" id="playButton"></button>
+                    <button class="pauseButton" id="pauseButton"></button>
                     <div class="next-track" onclick="nextTrack()">
                         <i class="fa fa-step-forward fa-2x"></i>
                     </div>
                 </div>
-
-                <span class="current-time" class="time">0:00</span>
-                <input type="range" class="seek_slider" max="100" value="0">
-                <span class="total_duration" class="time">0:00</span>
-                <output id="volume_output">100</output>
-                <input type="range" class="volume_slider" max="100" value="100">
+                <div class="slider_container">
+                    <span class="current-time" class="time">0:00</span>
+                    <input type="range" class="seek_slider" max="100" value="0">
+                    <span class="total_duration" class="time">0:00</span>
+                    <output id="volume_output">100</output>
+                    <input type="range" class="volume_slider" max="100" value="100">
+                </div>
             </div>
         </div>
         `

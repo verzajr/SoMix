@@ -508,7 +508,7 @@ body {
     -moz-appearance: none;
     appearance: none;
     height: 5px;
-    background: black;
+    background: #12B347;
     opacity: 0.7;
     -webkit-transition: .2s;
     transition: opacity .2s;
@@ -522,7 +522,7 @@ body {
     appearance: none;
     width: 15px;
     height: 15px;
-    background: white;
+    background: #F59325;
     cursor: pointer;
     border-radius: 50%;
     }
