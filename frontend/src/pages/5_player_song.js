@@ -135,7 +135,7 @@ function createButtonsAndPlaylist(currentSong, trackIMAGE) {
         const song = track_list[0];
 
         curr_track.src = song.preview;
-        curr_track.load();
+    
 
         track_art.style.backgroundImage = "url(" + trackIMAGE[0] + ")";
         track_name.textContent = song.title;
@@ -161,11 +161,18 @@ function createButtonsAndPlaylist(currentSong, trackIMAGE) {
             else index = 0;
         }); */
 
-        seek_slider.addEventListener('click', () => {  
-        const song_seekto = curr_track.duration * (seek_slider.value / 100);
-        curr_track.currentTime = song_seekto});
+        function setVolume() {
+            curr_track.volume = volume_slider.value / 100
+        }
 
-        volume_slider.addEventListener('click', () => { curr_track.volume = volume_slider.value / 100 });
+        function seekTo() {
+            const song_seekto = curr_track.duration * (seek_slider.value / 100);
+            curr_track.currentTime = song_seekto}
+        }
+
+        seek_slider.addEventListener('click', seekTo);
+
+        volume_slider.addEventListener('click', setVolume);
 
         curr_time.addEventListener('click', seekUpdate(curr_track));
         total_duration.addEventListener('click', seekUpdate(curr_track));
