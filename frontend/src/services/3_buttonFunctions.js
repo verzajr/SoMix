@@ -13,7 +13,7 @@ export async function handleSearchClick() {
 
 function changeDirection() {
     window.location.href = "#/songplayer";
-    console.log('it used HREF reference');
+   
 }
 
 export async function handleExecuteBtn(event) {
@@ -32,14 +32,18 @@ export async function handleExecuteBtn(event) {
     console.log(`trackID is ${trackID}`)
     localStorage.setItem('trackID',`${trackID}`);
 
-    const trackIMAGE = resultCard.name;
+    const trackIMAGE = optionsButton.parentNode.name;
     console.log(`trackIMAGE is ${trackIMAGE}`)
     localStorage.setItem('trackIMAGE',`${trackIMAGE}`);
 
 
     const mySong = await API_TrackSearch(trackID);
+    localStorage.setItem(`searchResultsFor_${trackID}`, JSON.stringify(mySong));
 
     console.log('Found a song ------', mySong);
+    if (!mySong){
+       target.click();
+    }
 
     
     changeDirection();
