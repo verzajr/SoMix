@@ -32,7 +32,7 @@ export async function handleExecuteBtn(event) {
     console.log(`trackID is ${trackID}`)
     localStorage.setItem('trackID',`${trackID}`);
 
-    const trackIMAGE = resultCard.name;
+    const trackIMAGE = resultCard.getAttribute("name");
     console.log(`trackIMAGE is ${trackIMAGE}`)
     localStorage.setItem('trackIMAGE',`${trackIMAGE}`);
 
