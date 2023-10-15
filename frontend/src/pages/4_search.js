@@ -2,12 +2,11 @@ import { createCustomHTMLElement, createImageElement } from "../services/6_HTMLb
 import { handleExecuteBtn } from "../services/3_buttonFunctions.js";
 import processGeneralSearchResults from "../services/5_generalSearchDataProcessing.js";
 
-function getSearchResultsFromLocalStorage(){
-    const params = window.location.searchParams;
-    const searchValue = params.get('q'); 
-    console.log('meu search value', searchValue);
+function getSearchResultsFromLocalStorage(searchValue){
     
-    const generalSearchResult = JSON.parse(localStorage.getItem(searchValue));
+    console.log('meu search value', searchValue);
+
+    const generalSearchResult = JSON.parse(localStorage.getItem(`${searchValue}`));
     console.log('resultado de general', generalSearchResult);
     return generalSearchResult;
     
@@ -83,9 +82,8 @@ const renderTrackCards = () => {
 }
 
 function buildSearchPage(){
-    const params = window.location.searchParams;
-    const searchValue = params.get('q'); 
-    const generalSearchResult = getSearchResultsFromLocalStorage();
+    const searchValue = localStorage.getItem('searchValue');
+    const generalSearchResult = getSearchResultsFromLocalStorage(searchValue);
     processGeneralSearchResults(searchValue, generalSearchResult);
 
     renderArtistCards();
