@@ -353,6 +353,9 @@ body {
         background-image: url("../icons/playbutton.png");
         background-repeat: no-repeat;
         justify-self: center;
+        align-self: center;
+        grid-column-start: 4;
+        grid-column-end: 5;
     }
 
     .pauseButton{
@@ -363,6 +366,9 @@ body {
         background-image: url("../icons/pausebutton.png");
         background-repeat: no-repeat;
         justify-self: center;
+        align-self: center;
+        grid-column-start: 4;
+        grid-column-end: 5;
     }
 
     .songPlayer {
@@ -411,6 +417,7 @@ body {
     margin: 25px;
     height: 250px;
     width: 20dvw;
+    height: 20dvw;
     background-size: cover;
     background-position: center;
     border-radius: 15%;
@@ -448,8 +455,9 @@ body {
     align items in a horizontal direction */
     .buttons {
     display: flex;
-    flex-direction: row;
-    align-items: center;
+    grid-template-columns: 5% auto 5% auto 5% auto 5%;
+    grid-template-rows: auto;
+    align-content: center;
     justify-content: space-evenly;
     }
     
@@ -470,17 +478,22 @@ body {
         background-color:rgba(99, 70, 45, 0);
         background-repeat: no-repeat;
         justify-self: center;
+        align-self: center;
     }
 
 
     .prev-track{
         justify-self: left;
         background-image: url("../icons/rewindbutton.png");
+        grid-column-start: 2;
+        grid-column-end: 3;
     }
 
     .next-track{
         justify-self: right;
         background-image: url("../icons/fasforwardbutton.png");
+        grid-column-start: 6;
+        grid-column-end: 7;
     }
     
     
@@ -495,7 +508,7 @@ body {
     /* Define the slider width so that it scales properly */
     .slider_container {
     width: 75%;
-    max-width: 400px;
+    max-width: 75dvw;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -507,7 +520,7 @@ body {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-    height: 5px;
+    height: 0.7dvh;
     background: #12B347;
     opacity: 0.7;
     -webkit-transition: .2s;
