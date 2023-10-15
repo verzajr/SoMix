@@ -121,11 +121,11 @@ function createButtonsAndPlaylist(currentSong) {
 
     
     const showRangeProgress = (rangeInput) => {
-        const htmlAudio = document.getElementsByClassName('audioPlayer');
+        const audioControls = document.getElementById('audioControls');
         if(rangeInput === seek_slider) {
-          htmlAudio.setAttribute('style','--seek-before-width', rangeInput.value / rangeInput.max * 100 + '%');
+            audioControls.style.setProperty('--seek-before-width', rangeInput.value / rangeInput.max * 100 + '%');
         } else {
-          htmlAudio.setAttribute('style', '--volume-before-width', rangeInput.value / rangeInput.max * 100 + '%');
+            audioControls.style.setProperty('--volume-before-width', rangeInput.value / rangeInput.max * 100 + '%');
         }
     }
     
