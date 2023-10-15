@@ -33,7 +33,7 @@ export function handleSearchClick() {
     localStorage.setItem('searchValue', lowerCaseSearchFieldValue);
 
     DZ.api(`/search?q=${lowerCaseSearchFieldValue}`, function (response) {
-        localStorage.setItem(`${lowerCaseSearchFieldValue}`, JSON.stringify(response));
+        localStorage.setItem('searchResult', JSON.stringify(response));
         return response;
     });
 
