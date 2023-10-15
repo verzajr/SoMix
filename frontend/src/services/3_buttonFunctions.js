@@ -23,6 +23,7 @@ export async function handleExecuteBtn(event) {
     const resultCard = optionsButton.parentNode;
     const ownerCard = resultCard.parentNode;
     console.log('este é o ownerCard', ownerCard);
+    console.log('este é o resultCard', resultCard);
 
     /* const url = resultCard.id;
     localStorage.setItem('Execute_url',url); */
