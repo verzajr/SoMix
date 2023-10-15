@@ -29,15 +29,16 @@ export async function handleExecuteBtn(event) {
 
     const trackID = resultCard.id;
     console.log(`trackID is ${trackID}`)
-    localStorage.setItem('trackID',trackID);
+    localStorage.setItem('trackID',`${trackID}`);
 
     const trackIMAGE = resultCard.name;
     console.log(`trackIMAGE is ${trackIMAGE}`)
-    localStorage.setItem('trackIMAGE',trackIMAGE);
+    localStorage.setItem('trackIMAGE',`${trackIMAGE}`);
 
 
-    await API_TrackSearch(id);
-    console.log('Found a song ------');
+    const mySong = await API_TrackSearch(trackID);
+
+    console.log('Found a song ------', mySong);
 
     
     changeDirection();
