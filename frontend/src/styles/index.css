@@ -476,22 +476,21 @@ body {
         width: 5dvh;
         border: none;
         background-color:rgba(99, 70, 45, 0);
-        background-repeat: no-repeat;
         justify-self: center;
         align-self: center;
+        align-content: center;
+        justify-content: center;
     }
 
 
     .prev-track{
         justify-self: left;
-        background-image: url("../icons/rewindbutton.png");
         grid-column-start: 2;
         grid-column-end: 3;
     }
 
     .next-track{
         justify-self: right;
-        background-image: url("../icons/fasforwardbutton.png");
         grid-column-start: 6;
         grid-column-end: 7;
     }
