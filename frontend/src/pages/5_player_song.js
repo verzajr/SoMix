@@ -111,12 +111,13 @@ function createButtonsAndPlaylist(currentSong) {
     track_name.innerHTML = currentSong[0].title;
     track_artist.innerHTML=currentSong[0].artist.name;
     now_playing.innerHTML="playing 1 of 1";
+    
 
     /* let total_duration_min = Math.floor(currentSong[0].duration % 60);
     let total_duration_sec = Number(((currentSong[0].duration) - (currentSong[0].duration)*60)); */
-    
+
     total_duration.innerHTML= secondsToMinutes(currentSong[0].duration)
-    curr_time.innerHTML=htmlAudio.currentTime;
+    curr_time.innerHTML=htmlAudio.currentTime[0];
 
     
     const showRangeProgress = (rangeInput) => {
