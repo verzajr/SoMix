@@ -1,5 +1,6 @@
 
 export async function API_GeneralSearch(searchValue, callback) {
+    console.log("API comm started");
     let result={};
     await DZ.api(`/search?q=${searchValue}`,  function (response) {
         console.log("API response",response);
