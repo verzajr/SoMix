@@ -2,8 +2,7 @@ import { API_GeneralSearch, API_ArtistSearch, API_AlbumSearch, API_TrackSearch }
 import processGeneralSearchResults from "./5_generalSearchDataProcessing.js";
 
 /* function getSearchResultsFromLocalStorage(searchValue){
-    const params = window.location.searchParams;
-    searchValue = params.get('q'); 
+   
     console.log('meu search value', searchValue);
 
     const generalSearchResult = JSON.parse(localStorage.getItem(searchValue));
@@ -31,6 +30,7 @@ export function handleSearchClick() {
     const searchFieldValue = document.getElementById("searchField").value; // gets value from search field
     const lowerCaseSearchFieldValue= searchFieldValue.toLowerCase();
     console.log(`Handling Search for "${lowerCaseSearchFieldValue}"...`);
+    localStorage.setItem('searchValue', lowerCaseSearchFieldValue);
 
     DZ.api(`/search?q=${lowerCaseSearchFieldValue}`, function (response) {
         localStorage.setItem(`${lowerCaseSearchFieldValue}`, JSON.stringify(response));
