@@ -11,11 +11,6 @@ export async function handleSearchClick() {
 
 };
 
-function changeDirection() {
-    window.location.href = "#/songplayer";
-   
-}
-
 export async function handleExecuteBtn(event) {
     const { target } = event;
     const dropButton=target.parentNode;
@@ -37,10 +32,8 @@ export async function handleExecuteBtn(event) {
     localStorage.setItem('trackIMAGE',`${trackIMAGE}`);
 
 
-    const mySong = await API_TrackSearch(trackID);
-    localStorage.setItem(`searchResultsFor_${trackID}`, JSON.stringify(mySong));
-
-    console.log('Found a song ------', mySong);
+    await API_TrackSearch(trackID);
+   
   
     changeDirection();
 };

@@ -5,8 +5,8 @@ export function buildSongPlayerPage() {
     /* const url = localStorage.getItem('Execute_url');
     createPlayer(url); */
     
-    let trackID = JSON.parse(localStorage.getItem('trackID'));
-    let trackIMAGE = JSON.parse(localStorage.getItem('trackIMAGE'));
+    let trackID = localStorage.getItem('trackID');
+    let trackIMAGE = localStorage.getItem('trackIMAGE');
     let currentSong = JSON.parse(localStorage.getItem(`searchResultsFor_${trackID}`));
 
     if (typeof (currentSong) !== Array) {
