@@ -34,6 +34,4 @@ export async function handleExecuteBtn(event) {
 
     await API_TrackSearch(trackID);
    
-  
-    changeDirection();
 };

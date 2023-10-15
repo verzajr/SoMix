@@ -32,7 +32,7 @@ export async function API_AlbumSearch(albumID) {
 export async function API_TrackSearch(trackID) {
 
     await DZ.api(`/track/${trackID}`, function (response) {
-        localStorage.setItem(`searchResultsFor_${trackID}`, JSON.stringify(mySong));
+        localStorage.setItem(`searchResultsFor_${trackID}`, JSON.stringify(response));
         window.location.href = "#/songplayer";
     });
         
