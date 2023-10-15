@@ -136,7 +136,6 @@ function createButtonsAndPlaylist(currentSong, trackIMAGE) {
 
         curr_track.src = song.preview;
     
-
         track_art.style.backgroundImage = "url(" + trackIMAGE[0] + ")";
         track_name.textContent = song.title;
 
