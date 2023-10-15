@@ -1,21 +1,5 @@
 import { API_GeneralSearch, API_ArtistSearch, API_AlbumSearch, API_TrackSearch } from "./4_sourceAPI.js";
 import processGeneralSearchResults from "./5_generalSearchDataProcessing.js";
-/* 
-function getSearchResultsFromLocalStorage(searchValue){
-   
-    console.log('meu search value', searchValue);
-
-    const generalSearchResult = JSON.parse(localStorage.getItem(searchValue));
-    console.log('resultado de general', generalSearchResult);
-    return generalSearchResult;
-    
-} */
-
-/* function APIresultsCallback(result){
-    let searchValue = localStorage.getItem("searchValue");
-    console.log("API Callback", searchValue);
-    processGeneralSearchResults(searchValue,result);
-}; */
 
 export async function handleSearchClick() {
 
@@ -23,46 +7,36 @@ export async function handleSearchClick() {
     const lowerCaseSearchFieldValue= searchFieldValue.toLowerCase();
     console.log(`Handling Search for "${lowerCaseSearchFieldValue}"...`);
     await API_GeneralSearch(lowerCaseSearchFieldValue, processGeneralSearchResults); // calls API function to search the API repository and gets a Json with results
-/* 
-    let resultsDataReady = localStorage.getItem("API_Data_Ready");
 
-    if (!resultsDataReady){
-        console.log("API Data not ready");
-        await API_GeneralSearch(lowerCaseSearchFieldValue, processGeneralSearchResults);
-        
-    } else {
-        window.location.href = "#/search";
-        console.log("API Data finally ready");
-        localStorage.removeItem("API_Data_Ready");
-    }; */
 
 };
 
+function changeDirection() {
+    window.location.assign = "#/songplayer";
+    console.log('it assigned to /songplayer');
 
-/* export function handleSearchClick() {
-
-    const searchFieldValue = document.getElementById("searchField").value; // gets value from search field
-    const lowerCaseSearchFieldValue= searchFieldValue.toLowerCase();
-    console.log(`Handling Search for "${lowerCaseSearchFieldValue}"...`);
-    localStorage.setItem('searchValue', lowerCaseSearchFieldValue);
-
-    DZ.api(`/search?q=${lowerCaseSearchFieldValue}`, function (response) {
-        localStorage.setItem('searchResult', JSON.stringify(response));
-        return response;
-    });
-
-    window.location.href = "#/search";
-};
- */
-
-export function handleExecuteBtn(event) {
     window.location.href = "#/songplayer";
+    console.log('it used HREF reference');
+}
+
+export async function handleExecuteBtn(event) {
     const { target } = event;
     const dropButton=target.parentNode;
     const optionsButton=dropButton.parentNode;
     const resultCard = optionsButton.parentNode;
-   /*  console.log('meu result card', resultCard); */
-    const sourceURL=resultCard.id;
-    console.log(`Source URL ${sourceURL}`)
-    localStorage.setItem('executionSourceURL',sourceURL);
-}
+    const ownerCard = resultCard.parentNode;
+    console.log('este é o ownerCard', ownerCard);
+
+    /* const url = resultCard.id;
+    localStorage.setItem('Execute_url',url); */
+
+    const id = resultCard.id;
+    console.log(`Execute ID ${id}`)
+    localStorage.setItem('Execute ID',id);
+
+    await API_TrackSearch(id);
+    console.log('Found a song ------');
+
+    
+    changeDirection();
+};

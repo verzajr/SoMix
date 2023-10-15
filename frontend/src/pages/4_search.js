@@ -1,17 +1,6 @@
 import { createCustomHTMLElement, createImageElement } from "../services/6_HTMLbuilder.js";
 import { handleExecuteBtn } from "../services/3_buttonFunctions.js";
-/* import processGeneralSearchResults from "../services/5_generalSearchDataProcessing.js"; */
 
-/* function getSearchResultsFromLocalStorage(searchValue){
-    
-    console.log('meu search value', searchValue);
-
-    let generalSearchResult = JSON.parse(localStorage.getItem('searchResult'));
-    console.log('resultado de general', generalSearchResult);
-    return generalSearchResult;
-    
-}
- */
 const createOptionsButtonElement = () => {
 
     const optionsButton = document.createElement('div');
@@ -35,30 +24,31 @@ const createOptionsButtonElement = () => {
 };
 
 
-const createCard = (element, image, url) => {
+const createCard = (element, image, id, cardType) => {
 
     const resultCard = createCustomHTMLElement('div', 'resultFrame', "");
-    resultCard.setAttribute('id',url)
+    resultCard.setAttribute('id', id);
+    resultCard.setAttribute('name', cardType);
     resultCard.appendChild(createImageElement(image));
     resultCard.appendChild(createCustomHTMLElement('p', 'cardText', element));
     resultCard.appendChild(createOptionsButtonElement());
     return resultCard;
-}
+};
 
 const gatherCards = (resultsArray, referenceHTMLElement, cardType) => {
     console.log(`Gathering ${cardType} cards...`);
     if (cardType === 'Artists') {
-        const allArtists = resultsArray.map((e) => ({ artist: e.artist.name, image: e.artist.picture, executionURL: e.artist.tracklist }));
+        const allArtists = resultsArray.map((e) => ({ artist: e.artist.name, image: e.artist.picture, executionURL: e.artist.id }));
         allArtists.forEach((e) => referenceHTMLElement.appendChild(createCard(e.artist, e.image, e.executionURL)));
     };
     if (cardType === 'Albums') {
-        const allAlbums = resultsArray.map((e) => ({ album: e.album.title, image: e.album.cover, executionURL: e.album.tracklist }));
+        const allAlbums = resultsArray.map((e) => ({ album: e.album.title, image: e.album.cover, executionURL: e.album.id }));
         allAlbums.forEach((e) => referenceHTMLElement.appendChild(createCard(e.album, e.image, e.executionURL)));
     };
     if (cardType === 'Tracks') {
         console.log('MY RESULTS', resultsArray);
-        const allTracks = resultsArray.map((e) => ({ track: e.title, image: e.album.cover, executionURL: e.preview }));
-        allTracks.forEach((e) => referenceHTMLElement.appendChild(createCard(e.track, e.image, e.executionURL)));
+        const allTracks = resultsArray.map((e) => ({ track: e.title, image: e.album.cover, executionURL: e.id }));
+        allTracks.forEach((e) => referenceHTMLElement.appendChild(createCard(e.track, e.image, e.id)));
     };
 
 }
@@ -83,11 +73,6 @@ const renderTrackCards = () => {
 
 function buildSearchPage(){
 
-/* 
-    const searchValue = localStorage.getItem('searchValue');
-    const generalSearchResult = getSearchResultsFromLocalStorage(searchValue);
-    processGeneralSearchResults(searchValue, generalSearchResult)
- */
     renderArtistCards();
     console.log("Building Artist Cards");
     renderAlbumCards();
