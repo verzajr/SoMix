@@ -41,10 +41,7 @@ export async function handleExecuteBtn(event) {
     localStorage.setItem(`searchResultsFor_${trackID}`, JSON.stringify(mySong));
 
     console.log('Found a song ------', mySong);
-    if (!mySong){
-       target.click();
-    }
-
+  
     
     changeDirection();
 };
