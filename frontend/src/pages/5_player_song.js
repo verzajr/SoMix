@@ -62,7 +62,7 @@ function createPlayer(currentSong) {
     const songPlayer = document.getElementsByClassName('songPlayer')[0];
     const htmlAudio = songPlayer.appendChild(createCustomHTMLElement('audio', 'audioPlayer', ''));
     const source = htmlAudio.appendChild(createCustomHTMLElement('source', '', ''));
-    const url = currentSong.preview;
+    const url = currentSong[0].preview;
     source.setAttribute('src', url);
     source.setAttribute('type', 'audio/mpeg');
 
@@ -126,26 +126,27 @@ function createButtonsAndPlaylist(currentSong, trackIMAGE) {
 
     // Clear the previous seek timer
     clearInterval(updateTimer);
-    resetValues();
 
-    for (let index = 0; index < track_list.length; index++) {
+    curr_time.textContent = "00:00";
+    total_duration.textContent = "00:00";
+    seek_slider.value = 0;
+
         curr_track = document.getElementsByClassName('audioPlayer');
-        const song = track_list[index];
+        const song = track_list[0];
 
         curr_track.src = song.preview;
-        curr_track.load();
-
-        track_art.style.backgroundImage = "url(" + trackIMAGE[index] + ")";
+    
+        track_art.style.backgroundImage = "url(" + trackIMAGE[0] + ")";
         track_name.textContent = song.title;
 
-        now_playing.textContent = "Playing " + (track_index + 1) + " song of " + track_list.length;
+        now_playing.textContent = "Playing 1 song of 1";
 
         updateTimer = setInterval(seekUpdate, 1000);
 
-        playTrack();
+        callPlayButton();
 
        
-        const prevButton = document.getElementsByClassName('prev-track');
+        /* const prevButton = document.getElementsByClassName('prev-track');
         prevButton.addEventListener('click', () => {
             if (index >= 0 && index <= track_list.length)
                 index -= 1;
@@ -157,13 +158,20 @@ function createButtonsAndPlaylist(currentSong, trackIMAGE) {
             if (index < track_list.length - 1)
                 index += 1;
             else index = 0;
-        });
+        }); */
 
-        seek_slider.addEventListener('click', () => {  
-        const song_seekto = curr_track.duration * (seek_slider.value / 100);
-        curr_track.currentTime = song_seekto});
+        function setVolume() {
+            curr_track.volume = volume_slider.value / 100
+        }
 
-        volume_slider.addEventListener('click', () => { curr_track.volume = volume_slider.value / 100 });
+        function seekTo() {
+            const song_seekto = curr_track.duration * (seek_slider.value / 100);
+            curr_track.currentTime = song_seekto}
+        }
+
+        seek_slider.addEventListener('click', seekTo);
+
+        volume_slider.addEventListener('click', setVolume);
 
         curr_time.addEventListener('click', seekUpdate(curr_track));
         total_duration.addEventListener('click', seekUpdate(curr_track));
@@ -177,8 +185,59 @@ function createButtonsAndPlaylist(currentSong, trackIMAGE) {
                 index += 1;
             else index = 0;
         });
-    };
+
 };
+
+/* for (let index = 0; index < track_list.length; index++) {
+    curr_track = document.getElementsByClassName('audioPlayer');
+    const song = track_list[index];
+
+    curr_track.src = song.preview;
+    curr_track.load();
+
+    track_art.style.backgroundImage = "url(" + trackIMAGE[index] + ")";
+    track_name.textContent = song.title;
+
+    now_playing.textContent = "Playing " + (track_index + 1) + " song of " + track_list.length;
+
+    updateTimer = setInterval(seekUpdate, 1000);
+
+    playTrack();
+
+   
+    const prevButton = document.getElementsByClassName('prev-track');
+    prevButton.addEventListener('click', () => {
+        if (index >= 0 && index <= track_list.length)
+            index -= 1;
+        else index = 0;
+    });
+
+    const nextButton = document.getElementsByClassName('next-track');
+    nextButton.addEventListener('click', () => {
+        if (index < track_list.length - 1)
+            index += 1;
+        else index = 0;
+    });
+
+    seek_slider.addEventListener('click', () => {  
+    const song_seekto = curr_track.duration * (seek_slider.value / 100);
+    curr_track.currentTime = song_seekto});
+
+    volume_slider.addEventListener('click', () => { curr_track.volume = volume_slider.value / 100 });
+
+    curr_time.addEventListener('click', seekUpdate(curr_track));
+    total_duration.addEventListener('click', seekUpdate(curr_track));
+
+
+    curr_track.addEventListener("ended", () => {
+        curr_time.textContent = "00:00";
+        total_duration.textContent = "00:00";
+        seek_slider.value = 0;
+        if (index < track_list.length - 1)
+            index += 1;
+        else index = 0;
+    });
+}; */
 
 
 export const executeSongComponent = {
