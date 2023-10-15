@@ -4,20 +4,20 @@ import { createCustomHTMLElement } from "../services/6_HTMLbuilder.js";
 export function buildSongPlayerPage() {
     /* const url = localStorage.getItem('Execute_url');
     createPlayer(url); */
-    
+
     let trackID = localStorage.getItem('trackID');
-/*     let trackIMAGE = localStorage.getItem('trackIMAGE'); */
+    /*     let trackIMAGE = localStorage.getItem('trackIMAGE'); */
     let currentSong = JSON.parse(localStorage.getItem(`searchResultsFor_${trackID}`));
 
     if (typeof (currentSong) !== Array) {
-/*         trackIMAGE = [trackIMAGE]; */
+        /*         trackIMAGE = [trackIMAGE]; */
         trackID = [trackID];
         currentSong = [currentSong];
     };
 
     console.log('current song object', currentSong);
     console.log('trackID', trackID);
-/*     console.log('trackIMAGE', trackIMAGE); */
+    /*     console.log('trackIMAGE', trackIMAGE); */
 
     createPlayer(currentSong);
     createButtonsAndPlaylist(currentSong);
@@ -91,44 +91,44 @@ function createButtonsAndPlaylist(currentSong) {
 
     track_art.setAttribute("src", `${currentSong[0].album.cover_xl}`);
 
-    function secondsToMinutes(seconds){
-        function twoDigits(number){
-          if (number <= 9){
-            number = "0"+number;
-          }
-          return number;
+    function secondsToMinutes(seconds) {
+        function twoDigits(number) {
+            if (number <= 9) {
+                number = "0" + number;
+            }
+            return number;
         }
-        let minute = twoDigits(Math.round((seconds%3600)/60));
-        let second = twoDigits((seconds%3600)%60);
-        
-        let final = minute+":"+second;
-      
-        return final;
-      }
+        let minute = twoDigits(Math.round((seconds % 3600) / 60));
+        let second = twoDigits((seconds % 3600) % 60);
 
-    
- 
+        let final = minute + ":" + second;
+
+        return final;
+    }
+
+
+
     track_name.innerHTML = currentSong[0].title;
-    track_artist.innerHTML=currentSong[0].artist.name;
-    now_playing.innerHTML="playing 1 of 1";
-    
+    track_artist.innerHTML = currentSong[0].artist.name;
+    now_playing.innerHTML = "playing 1 of 1";
+
 
     /* let total_duration_min = Math.floor(currentSong[0].duration % 60);
     let total_duration_sec = Number(((currentSong[0].duration) - (currentSong[0].duration)*60)); */
 
-    total_duration.innerHTML= secondsToMinutes(currentSong[0].duration)
-    curr_time.innerHTML=htmlAudio.currentTime[0];
+    total_duration.innerHTML = secondsToMinutes(currentSong[0].duration)
+    curr_time.innerHTML = htmlAudio.currentTime[0];
 
-    
+
     const showRangeProgress = (rangeInput) => {
         const audioControls = document.getElementById('audioControls');
-        if(rangeInput === seek_slider) {
+        if (rangeInput === seek_slider) {
             audioControls.style.setProperty('--seek-before-width', rangeInput.value / rangeInput.max * 100 + '%');
         } else {
             audioControls.style.setProperty('--volume-before-width', rangeInput.value / rangeInput.max * 100 + '%');
         }
     }
-    
+
     seek_slider.addEventListener('input', (e) => {
         showRangeProgress(e.target);
     });
@@ -176,18 +176,11 @@ export const executeSongComponent = {
                     </div>
                 </div>
 
-                <div class="slider_container">    <!-- Define the section for displaying the seek slider-->
-                    <div class="current-time">00:00</div>
-                    <input type="range" min="1" max="100" value="0" class="seek_slider">
-                    <div class="total-duration">00:00</div>
-                </div>
-
-                <div class="slider_container">   <!-- Define the section for displaying the volume slider-->
-                    <i class="fa fa-volume-down"></i>
-                    <output id="volume-output">100</output>
-                    <input type="range" min="1" max="100" value="99" class="volume_slider">
-                    <i class="fa fa-volume-up"></i>
-                </div>
+                <span class="current-time" class="time">0:00</span>
+                <input type="range" class="seek_slider" max="100" value="0">
+                <span class="total_duration" class="time">0:00</span>
+                <output id="volume_output">100</output>
+                <input type="range" class="volume_slider" max="100" value="100">
             </div>
         </div>
         `
