@@ -1,7 +1,7 @@
 import { API_GeneralSearch, API_ArtistSearch, API_AlbumSearch, API_TrackSearch } from "./4_sourceAPI.js";
 import processGeneralSearchResults from "./5_generalSearchDataProcessing.js";
-
-/* function getSearchResultsFromLocalStorage(searchValue){
+/* 
+function getSearchResultsFromLocalStorage(searchValue){
    
     console.log('meu search value', searchValue);
 
@@ -11,21 +11,19 @@ import processGeneralSearchResults from "./5_generalSearchDataProcessing.js";
     
 } */
 
-/* export function handleSearchClick() {
+export function handleSearchClick() {
 
     const searchFieldValue = document.getElementById("searchField").value; // gets value from search field
     const lowerCaseSearchFieldValue= searchFieldValue.toLowerCase();
     console.log(`Handling Search for "${lowerCaseSearchFieldValue}"...`);
 
-    API_GeneralSearch(lowerCaseSearchFieldValue); // calls API function to search the API repository and gets a Json with results
-
-    const generalSearchResult = getSearchResultsFromLocalStorage(lowerCaseSearchFieldValue);
-    processGeneralSearchResults(lowerCaseSearchFieldValue, generalSearchResult);// calls function to process the Json and gets arrays with info to show on the screen 
+    API_GeneralSearch(lowerCaseSearchFieldValue,processGeneralSearchResults); // calls API function to search the API repository and gets a Json with results
+     
     window.location.href = "#/search";
-}; */
+};
 
 
-export function handleSearchClick() {
+/* export function handleSearchClick() {
 
     const searchFieldValue = document.getElementById("searchField").value; // gets value from search field
     const lowerCaseSearchFieldValue= searchFieldValue.toLowerCase();
@@ -39,7 +37,7 @@ export function handleSearchClick() {
 
     window.location.href = "#/search";
 };
-
+ */
 
 export function handleExecuteBtn(event) {
     window.location.href = "#/songplayer";
