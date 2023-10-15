@@ -6,35 +6,35 @@ export function buildSongPlayerPage() {
     createPlayer(url); */
     
     let trackID = localStorage.getItem('trackID');
-    let trackIMAGE = localStorage.getItem('trackIMAGE');
+/*     let trackIMAGE = localStorage.getItem('trackIMAGE'); */
     let currentSong = JSON.parse(localStorage.getItem(`searchResultsFor_${trackID}`));
 
     if (typeof (currentSong) !== Array) {
-        trackIMAGE = [trackIMAGE];
+/*         trackIMAGE = [trackIMAGE]; */
         trackID = [trackID];
         currentSong = [currentSong];
     };
 
     console.log('current song object', currentSong);
     console.log('trackID', trackID);
-    console.log('trackIMAGE', trackIMAGE);
+/*     console.log('trackIMAGE', trackIMAGE); */
 
     createPlayer(currentSong);
-    createButtonsAndPlaylist(currentSong, trackIMAGE);
+    createButtonsAndPlaylist(currentSong);
 };
 
 
-function callPlayButton(tracks) {
-    DZ.player.play(tracks)
-/*     audio.play(); */
+function callPlayButton(audio) {
+
+    audio.play();
     console.log("Playing song...");
     document.getElementsByClassName('playButton')[0].style.display = "none";
     document.getElementsByClassName('pauseButton')[0].style.display = "inline-block";
 
 }
 
-function callPauseButton(tracks) {
-    DZ.player.pause(tracks)
+function callPauseButton(audio) {
+    audio.pause();
     console.log("Song paused.");
     document.getElementsByClassName('pauseButton')[0].style.display = "none";
     document.getElementsByClassName('playButton')[0].style.display = "inline-block";
@@ -70,13 +70,13 @@ function createPlayer(currentSong) {
     //building control buttons
     const audioControls = document.getElementById("audioControls");
     const playButton = audioControls.appendChild(createCustomHTMLElement('button', 'playButton', ''));
-    playButton.addEventListener('click', () => { callPlayButton(currentSong) });
+    playButton.addEventListener('click', () => { callPlayButton(htmlAudio) });
     const pauseButton = audioControls.appendChild(createCustomHTMLElement('button', 'pauseButton', ''));
-    pauseButton.addEventListener('click', () => { callPauseButton(currentSong) });
+    pauseButton.addEventListener('click', () => { callPauseButton(htmlAudio) });
     document.getElementsByClassName('pauseButton')[0].style.display = "none";
 };
 
-function createButtonsAndPlaylist(currentSong, trackIMAGE) {
+function createButtonsAndPlaylist(currentSong) {
     const htmlAudio = document.getElementsByClassName('audioPlayer');
     let now_playing = document.querySelector(".now-playing");
     let track_art = document.querySelector(".track-art");
@@ -92,6 +92,10 @@ function createButtonsAndPlaylist(currentSong, trackIMAGE) {
     track_art.src = currentSong[0].album.cover_xl;
     track_name.innerHTML = currentSong[0].title;
     track_artist.innerHTML=currentSong[0].artist.name;
+    now_playing.innerHTML="playing 1 of 1";
+    total_duration.innerHTML=currentSong[0].duration/60;
+    curr_time.innerHTML=htmlAudio.currentTime;
+
     
     const showRangeProgress = (rangeInput) => {
         if(rangeInput === seek_slider) {
@@ -149,9 +153,9 @@ export const executeSongComponent = {
                 </div>
 
                 <div class="slider_container">    <!-- Define the section for displaying the seek slider-->
-                    <div class="current-time">00:00</div>
+                    <div class="current-time"></div>
                     <input type="range" min="1" max="100" value="0" class="seek_slider">
-                    <div class="total-duration">00:00</div>
+                    <div class="total-duration"></div>
                 </div>
 
                 <div class="slider_container">   <!-- Define the section for displaying the volume slider-->
