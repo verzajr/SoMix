@@ -6,7 +6,7 @@ function getSearchResultsFromLocalStorage(searchValue){
     
     console.log('meu search value', searchValue);
 
-    const generalSearchResult = JSON.parse(localStorage.getItem('searchResult'));
+    const generalSearchResult = localStorage.getItem('searchResult');
     console.log('resultado de general', generalSearchResult);
     return generalSearchResult;
     
