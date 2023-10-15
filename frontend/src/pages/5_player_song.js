@@ -17,8 +17,8 @@ export function buildSongPlayerPage() {
     console.log('trackID', trackID);
     console.log('trackIMAGE', trackIMAGE);
 
-    createButtonsAndPlaylist(currentSong, trackIMAGE);
     createPlayer(currentSong);
+    createButtonsAndPlaylist(currentSong, trackIMAGE);
 };
 
 
