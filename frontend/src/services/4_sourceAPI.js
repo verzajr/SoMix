@@ -1,8 +1,12 @@
 
-export function API_GeneralSearch(searchValue) {
-
+export function API_GeneralSearch(searchValue, callback) {
+    let result={};
     DZ.api(`/search?q=${searchValue}`, function (response) {
-        localStorage.setItem(`${searchValue}`, JSON.stringify(response));
+        console.log("API response",response);
+        result=response;
+        if (typeof callback === "function") {
+            callback(searchValue,result);
+        };
     });
 };
 

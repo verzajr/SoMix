@@ -1,8 +1,8 @@
 import { createCustomHTMLElement, createImageElement } from "../services/6_HTMLbuilder.js";
 import { handleExecuteBtn } from "../services/3_buttonFunctions.js";
-import processGeneralSearchResults from "../services/5_generalSearchDataProcessing.js";
+/* import processGeneralSearchResults from "../services/5_generalSearchDataProcessing.js"; */
 
-function getSearchResultsFromLocalStorage(searchValue){
+/* function getSearchResultsFromLocalStorage(searchValue){
     
     console.log('meu search value', searchValue);
 
@@ -11,7 +11,7 @@ function getSearchResultsFromLocalStorage(searchValue){
     return generalSearchResult;
     
 }
-
+ */
 const createOptionsButtonElement = () => {
 
     const optionsButton = document.createElement('div');
@@ -83,11 +83,11 @@ const renderTrackCards = () => {
 
 function buildSearchPage(){
 
-    window.addEventListener("load",() =>{
+/* 
     const searchValue = localStorage.getItem('searchValue');
     const generalSearchResult = getSearchResultsFromLocalStorage(searchValue);
-    processGeneralSearchResults(searchValue, generalSearchResult)});
-
+    processGeneralSearchResults(searchValue, generalSearchResult)
+ */
     renderArtistCards();
     console.log("Building Artist Cards");
     renderAlbumCards();
