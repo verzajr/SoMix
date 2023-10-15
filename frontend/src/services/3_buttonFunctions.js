@@ -17,7 +17,7 @@ export function handleSearchClick() {
     const lowerCaseSearchFieldValue= searchFieldValue.toLowerCase();
     console.log(`Handling Search for "${lowerCaseSearchFieldValue}"...`);
 
-    API_GeneralSearch(lowerCaseSearchFieldValue,processGeneralSearchResults); // calls API function to search the API repository and gets a Json with results
+    API_GeneralSearch(lowerCaseSearchFieldValue, processGeneralSearchResults); // calls API function to search the API repository and gets a Json with results
      
     window.location.href = "#/search";
 };

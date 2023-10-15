@@ -1,11 +1,11 @@
 
 export function API_GeneralSearch(searchValue, callback) {
     let result={};
-    DZ.api(`/search?q=${searchValue}`, function (response) {
+    DZ.api(`/search?q=${searchValue}`, async function (response) {
         console.log("API response",response);
-        result=response;
+        result = response;
         if (typeof callback === "function") {
-            callback(searchValue,result);
+           await callback(searchValue,result);
         };
     });
 };
