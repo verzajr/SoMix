@@ -89,14 +89,33 @@ function createButtonsAndPlaylist(currentSong) {
     let curr_time = document.querySelector(".current-time");
     let total_duration = document.querySelector(".total-duration");
 
-    track_art.setAttribute("src", `${currentSong[0].album.cover}`);
-    console.log(`${currentSong[0].album.cover}`);
+    track_art.setAttribute("src", `${currentSong[0].album.cover_xl}`);
+
+    function secondsToMinutes(seconds){
+        function twoDigits(number){
+          if (number <= 9){
+            number = "0"+number;
+          }
+          return number;
+        }
+        let minute = twoDigits(Math.round((seconds%3600)/60));
+        let second = twoDigits((seconds%3600)%60);
+        
+        let final = minute+":"+second;
+      
+        return final;
+      }
+
+    
+ 
     track_name.innerHTML = currentSong[0].title;
     track_artist.innerHTML=currentSong[0].artist.name;
     now_playing.innerHTML="playing 1 of 1";
-    let total_duration_min = Number(currentSong[0].duration) % 60;
-    let total_duration_sec = Number(((currentSong[0].duration) - (currentSong[0].duration)*60));
-    total_duration.innerHTML= total_duration_min + ":" + total_duration_sec;
+
+    /* let total_duration_min = Math.floor(currentSong[0].duration % 60);
+    let total_duration_sec = Number(((currentSong[0].duration) - (currentSong[0].duration)*60)); */
+    
+    total_duration.innerHTML= secondsToMinutes(currentSong[0].duration)
     curr_time.innerHTML=htmlAudio.currentTime;
 
     
