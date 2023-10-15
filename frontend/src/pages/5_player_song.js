@@ -93,11 +93,14 @@ function createButtonsAndPlaylist(currentSong) {
     track_name.innerHTML = currentSong[0].title;
     track_artist.innerHTML=currentSong[0].artist.name;
     now_playing.innerHTML="playing 1 of 1";
-    total_duration.innerHTML=currentSong[0].duration/60;
+    let total_duration_min = currentSong[0].duration%60;
+    let total_duration_sec = Number(60/((currentSong[0].duration) - (currentSong[0].duration%60)));
+    total_duration.innerHTML= total_duration_min + ":" + total_duration_sec;
     curr_time.innerHTML=htmlAudio.currentTime;
 
     
     const showRangeProgress = (rangeInput) => {
+        const htmlAudio = document.getElementsByClassName('audioPlayer');
         if(rangeInput === seek_slider) {
           htmlAudio.style.setProperty('--seek-before-width', rangeInput.value / rangeInput.max * 100 + '%');
         } else {
@@ -153,9 +156,9 @@ export const executeSongComponent = {
                 </div>
 
                 <div class="slider_container">    <!-- Define the section for displaying the seek slider-->
-                    <div class="current-time"></div>
+                    <div class="current-time">00:00</div>
                     <input type="range" min="1" max="100" value="0" class="seek_slider">
-                    <div class="total-duration"></div>
+                    <div class="total-duration">00:00</div>
                 </div>
 
                 <div class="slider_container">   <!-- Define the section for displaying the volume slider-->
