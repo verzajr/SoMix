@@ -381,6 +381,7 @@ body {
         align-self: center;
         justify-self: center;
         z-index: 1;
+        object-fit: contain;
         }
 
 
@@ -395,6 +396,8 @@ body {
         width: inherit;
         align-self: center;
         justify-self: center;
+        max-height: 67.7dvh;
+        clip:auto;
     }
     
     .details {
@@ -409,8 +412,6 @@ body {
     margin: 25px;
     height: 250px;
     width: 250px;
-    background-image: URL(
-        "https://source.unsplash.com/Qrspubmx6kE/640x360");
     background-size: cover;
     background-position: center;
     border-radius: 15%;
@@ -418,15 +419,30 @@ body {
     
     /* Changing the font sizes to suitable ones */
     .now-playing {
-    font-size: 1rem;
+        font-size: 1dvh;
+        font-weight: normal;
+        font-family: "Dosis", sans-serif;
+        text-align: center;
+        margin: 0.5dvh 0.3dvw 0.5dvh 0.3dvw;
+        color: white;
     }
     
     .track-name {
-    font-size: 3rem;
+        font-size: 3dvh;
+        font-weight: bolder;
+        font-family: "Dosis", sans-serif;
+        text-align: center;
+        margin: 0.5dvh 0.3dvw 0.5dvh 0.3dvw;
+        color: white;
     }
     
     .track-artist {
-    font-size: 1.5rem;
+        font-size: 2dvh;
+        font-weight: bold;
+        font-family: "Dosis", sans-serif;
+        text-align: center;
+        margin: 0.5dvh 0.3dvw 0.5dvh 0.3dvw;
+        color: white;
     }
     
     /* Using flex with the row direction to
@@ -442,10 +458,32 @@ body {
     .next-track {
     padding: 25px;
     opacity: 0.8;
-    
+
     /* Smoothly transition the opacity */
     transition: opacity .2s;
     }
+
+    .prev-track, .next-track{
+        height: 5dvh;
+        width: 5dvh;
+        border: none;
+        background-color:rgba(99, 70, 45, 0);
+        background-repeat: no-repeat;
+        justify-self: center;
+    }
+
+
+    .prev-track{
+        justify-self: left;
+        background-image: url("../icons/rewindbutton.png");
+    }
+
+    .next-track{
+        justify-self: right;
+        background-image: url("../icons/fasforwardbutton.png");
+    }
+    
+    
     
     /* Change the opacity when mouse is hovered */
     .playpause-track:hover,
@@ -527,8 +565,9 @@ body {
 
 footer{
     background-color: #26355E;
+    padding: 1dvh 0.6dvw 1dvh 0.6dvw;
     color: silver;
-    font-size: 10px;
+    font-size: 2dvh;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     grid-row-start: 2;
     grid-row-end: 3;

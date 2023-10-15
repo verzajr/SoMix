@@ -2,22 +2,20 @@ import { handleExecuteBtn } from "../services/3_buttonFunctions.js";
 import { createCustomHTMLElement } from "../services/6_HTMLbuilder.js";
 
 export function buildSongPlayerPage() {
-    /* const url = localStorage.getItem('Execute_url');
-    createPlayer(url); */
+
 
     let trackID = localStorage.getItem('trackID');
-    /*     let trackIMAGE = localStorage.getItem('trackIMAGE'); */
+
     let currentSong = JSON.parse(localStorage.getItem(`searchResultsFor_${trackID}`));
 
     if (typeof (currentSong) !== Array) {
-        /*         trackIMAGE = [trackIMAGE]; */
+
         trackID = [trackID];
         currentSong = [currentSong];
     };
 
     console.log('current song object', currentSong);
     console.log('trackID', trackID);
-    /*     console.log('trackIMAGE', trackIMAGE); */
 
     createPlayer(currentSong);
     createButtonsAndPlaylist(currentSong);
@@ -68,10 +66,10 @@ function createPlayer(currentSong) {
     source.setAttribute('type', 'audio/mpeg');
 
     //building control buttons
-    const audioControls = document.getElementById("audioControls");
-    const playButton = audioControls.appendChild(createCustomHTMLElement('button', 'playButton', ''));
+    const controlButtons = document.getElementById("controlButtons");
+    const playButton = controlButtons.appendChild(createCustomHTMLElement('button', 'playButton', ''));
     playButton.addEventListener('click', () => { callPlayButton(htmlAudio) });
-    const pauseButton = audioControls.appendChild(createCustomHTMLElement('button', 'pauseButton', ''));
+    const pauseButton = controlButtons.appendChild(createCustomHTMLElement('button', 'pauseButton', ''));
     pauseButton.addEventListener('click', () => { callPauseButton(htmlAudio) });
     document.getElementsByClassName('pauseButton')[0].style.display = "none";
 };
@@ -113,9 +111,6 @@ function createButtonsAndPlaylist(currentSong) {
     now_playing.innerHTML = "playing 1 of 1";
 
 
-    /* let total_duration_min = Math.floor(currentSong[0].duration % 60);
-    let total_duration_sec = Number(((currentSong[0].duration) - (currentSong[0].duration)*60)); */
-
     total_duration.innerHTML = secondsToMinutes(currentSong[0].duration)
     curr_time.innerHTML = htmlAudio.currentTime[0];
 
@@ -141,12 +136,6 @@ export const executeSongComponent = {
 
     render: () => {
         return `
-        <head>
-  
-            <!-- Load FontAwesome icons -->
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"><!-- Load the custom CSS style file -->
-
-        </head>
 
         <a href="#/"><img class="logo" src="./images/logoColor.png" alt="Página inicial"></a> <!-- adding application logo -->
         <div class="rightTile">
@@ -166,7 +155,7 @@ export const executeSongComponent = {
                     <div class="track-artist">Track Artist</div>
                 </div>
 
-                <div class="buttons">     <!-- Define the section for displaying track buttons -->
+                <div class="buttons" id="controlButtons>     <!-- Define the section for displaying track buttons -->
                     <div class="prev-track" onclick="prevTrack()">
                         <i class="fa fa-step-backward fa-2x"></i>
                     </div>
