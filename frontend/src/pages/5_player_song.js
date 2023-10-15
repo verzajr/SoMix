@@ -164,7 +164,7 @@ export const executeSongComponent = {
                 <div class="buttons" id="controlButtons">     <!-- Define the section for displaying track buttons -->
                 <div class="prev-track" onclick="prevTrack()">
                     <i class="fa fa-step-backward fa-2x"></i>
-                    <img src="../icons/rewindbutton.png">
+                    <img class="prev-track" src="../icons/rewindbutton.png">
                 </div>
                 <button class="playButton" id="playButton">
                     <img class="playButton" src="../icons/playbutton.png">
@@ -174,7 +174,7 @@ export const executeSongComponent = {
                 </button>
                 <div class="next-track" onclick="nextTrack()">
                     <i class="fa fa-step-forward fa-2x"></i>
-                    <img src="../icons/fasforwardbutton.png">
+                    <img class="next-track" src="../icons/fasforwardbutton.png">
                 </div>
             </div>
             </div>
