@@ -170,21 +170,18 @@ function createButtonsAndPlaylist(currentSong, trackIMAGE) {
             curr_track.currentTime = song_seekto
         }
 
-        seek_slider.addEventListener('click', seekTo);
+        seek_slider.addEventListener('change', seekTo);
 
-        volume_slider.addEventListener('click', setVolume);
+        volume_slider.addEventListener('change', setVolume);
 
-        curr_time.addEventListener('click', seekUpdate(curr_track));
-        total_duration.addEventListener('click', seekUpdate(curr_track));
+        curr_time.addEventListener('change', seekUpdate(curr_track));
+        total_duration.addEventListener('change', seekUpdate(curr_track));
 
 
         curr_track.addEventListener("ended", () => {
             curr_time.textContent = "00:00";
             total_duration.textContent = "00:00";
             seek_slider.value = 0;
-            if (index < track_list.length - 1)
-                index += 1;
-            else index = 0;
         });
     
 };
@@ -282,13 +279,13 @@ export const executeSongComponent = {
 
                 <div class="slider_container">    <!-- Define the section for displaying the seek slider-->
                     <div class="current-time">00:00</div>
-                    <input type="range" min="1" max="100" value="0" class="seek_slider" onchange="seekTo()">
+                    <input type="range" min="1" max="100" value="0" class="seek_slider">
                     <div class="total-duration">00:00</div>
                 </div>
 
                 <div class="slider_container">   <!-- Define the section for displaying the volume slider-->
                     <i class="fa fa-volume-down"></i>
-                    <input type="range" min="1" max="100" value="99" class="volume_slider" onchange="setVolume()">
+                    <input type="range" min="1" max="100" value="99" class="volume_slider">
                     <i class="fa fa-volume-up"></i>
                 </div>
             </div>
