@@ -30,14 +30,10 @@ export async function API_AlbumSearch(albumID) {
 };
 
 export async function API_TrackSearch(trackID) {
-    let result={};
+
     await DZ.api(`/track/${trackID}`, function (response) {
-        console.log("API response",response);
-        result =  response;
-        console.log("API result",result);
-        if (typeof callback === "function") {
-            callback(result);
-        };
+        localStorage.setItem(`searchResultsFor_${trackID}`, JSON.stringify(mySong));
+        window.location.href = "#/songplayer";
     });
         
 
