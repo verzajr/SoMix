@@ -1,10 +1,10 @@
 
 
-export default function processGeneralSearchResults(searchValue, generalSearchJson){
+export default async function processGeneralSearchResults(searchValue, generalSearchJson){
 
     console.log("Processing General Search...");
 
-    let generalSearchData = generalSearchJson.data;
+    let generalSearchData = await generalSearchJson.data;
     const artists = gatherSearchResults_Artists(searchValue, generalSearchData);
     const albums = gatherSearchResults_Albums(searchValue, generalSearchData);
     const tracks = gatherSearchResults_Tracks(searchValue, generalSearchData);

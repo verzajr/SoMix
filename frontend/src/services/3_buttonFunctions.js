@@ -17,7 +17,7 @@ function getSearchResultsFromLocalStorage(searchValue){
     processGeneralSearchResults(searchValue,result);
 }; */
 
-export function handleSearchClick() {
+export async function handleSearchClick() {
 
     const searchFieldValue = document.getElementById("searchField").value; // gets value from search field
     const lowerCaseSearchFieldValue= searchFieldValue.toLowerCase();

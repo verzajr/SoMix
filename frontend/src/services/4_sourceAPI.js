@@ -6,7 +6,7 @@ export function API_GeneralSearch(searchValue, callback) {
         result =  await response;
         console.log("API result",response);
         if (typeof callback === "function") {
-           callback(searchValue, result);
+           await callback(searchValue, result);
         };
     });
 };
