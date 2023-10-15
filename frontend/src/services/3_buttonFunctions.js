@@ -26,14 +26,24 @@ export async function handleSearchClick() {
 
     let resultsDataReady = localStorage.getItem("API_Data_Ready");
 
+    while (!resultsDataReady){
+        console.log("API Data pending...");
+    };
+
+    window.location.href = "#/search";
+    console.log("API Data finally ready");
+    localStorage.removeItem("API_Data_Ready");
+
+/* 
     if (!resultsDataReady){
         console.log("API Data not ready");
+        handleSearchClick();
     } else {
         window.location.href = "#/search";
         console.log("API Data finally ready");
         localStorage.removeItem("API_Data_Ready");
     };
-
+ */
 };
 
 
