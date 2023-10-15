@@ -6,26 +6,25 @@ export function buildSongPlayerPage() {
     createPlayer(url); */
     
     let trackID = localStorage.getItem('trackID');
-/*     let trackIMAGE = localStorage.getItem('trackIMAGE'); */
+    let trackIMAGE = localStorage.getItem('trackIMAGE');
     let currentSong = JSON.parse(localStorage.getItem(`searchResultsFor_${trackID}`));
 
     if (typeof (currentSong) !== Array) {
-/*         trackIMAGE = [trackIMAGE]; */
+        trackIMAGE = [trackIMAGE];
         trackID = [trackID];
         currentSong = [currentSong];
     };
 
     console.log('current song object', currentSong);
     console.log('trackID', trackID);
-/*     console.log('trackIMAGE', trackIMAGE); */
+    console.log('trackIMAGE', trackIMAGE);
 
     createPlayer(currentSong);
-    createButtonsAndPlaylist(currentSong);
+    createButtonsAndPlaylist(currentSong, trackIMAGE);
 };
 
 
 function callPlayButton(audio) {
-
     audio.play();
     console.log("Playing song...");
     document.getElementsByClassName('playButton')[0].style.display = "none";
@@ -76,8 +75,7 @@ function createPlayer(currentSong) {
     document.getElementsByClassName('pauseButton')[0].style.display = "none";
 };
 
-function createButtonsAndPlaylist(currentSong) {
-    const htmlAudio = document.getElementsByClassName('audioPlayer');
+function createButtonsAndPlaylist(currentSong, trackIMAGE) {
     let now_playing = document.querySelector(".now-playing");
     let track_art = document.querySelector(".track-art");
     let track_name = document.querySelector(".track-name");
@@ -89,32 +87,156 @@ function createButtonsAndPlaylist(currentSong) {
     let curr_time = document.querySelector(".current-time");
     let total_duration = document.querySelector(".total-duration");
 
-    track_art.src = `url("${currentSong[0].album.cover_xl}")`;
-    track_name.innerHTML = currentSong[0].title;
-    track_artist.innerHTML=currentSong[0].artist.name;
-    now_playing.innerHTML="playing 1 of 1";
-    let total_duration_min = (currentSong[0].duration)%60;
-    let total_duration_sec = Number(((currentSong[0].duration) - (currentSong[0].duration%60))*60);
-    total_duration.innerHTML= total_duration_min + ":" + total_duration_sec;
-    curr_time.innerHTML=htmlAudio.currentTime;
+    let updateTimer;
 
+    let curr_track = document.getElementsByClassName('audioPlayer');
+
+    // Define the list of tracks that have to be played
+    let track_list = currentSong;
+    let duration = currentSong[0];
+
+    function playTrack(audio) {
+        callPlayButton(audio)
+    } 
     
-    const showRangeProgress = (rangeInput) => {
-        const htmlAudio = document.getElementsByClassName('audioPlayer');
-        if(rangeInput === seek_slider) {
-          htmlAudio.style.setProperty('--seek-before-width', rangeInput.value / rangeInput.max * 100 + '%');
-        } else {
-          htmlAudio.style.setProperty('--volume-before-width', rangeInput.value / rangeInput.max * 100 + '%');
+    function seekUpdate(curr_track) {
+        let seekPosition = 0;
+    
+        // Check if the current track duration is a legible number
+        if (!isNaN(duration)) {
+            seekPosition = curr_track.currentTime * (100 / duration);
+            seek_slider.value = seekPosition;
+    
+            // Calculate the time left and the total duration
+            let currentMinutes = Math.floor(curr_track.currentTime / 60);
+            let currentSeconds = Math.floor(curr_track.currentTime - currentMinutes * 60);
+            let durationMinutes = Math.floor(duration / 60);
+            let durationSeconds = Math.floor(duration - durationMinutes * 60);
+    
+            // Add a zero to the single digit time values
+            if (currentSeconds < 10) { currentSeconds = "0" + currentSeconds; }
+            if (durationSeconds < 10) { durationSeconds = "0" + durationSeconds; }
+            if (currentMinutes < 10) { currentMinutes = "0" + currentMinutes; }
+            if (durationMinutes < 10) { durationMinutes = "0" + durationMinutes; }
+    
+            // Display the updated duration
+            curr_time.textContent = currentMinutes + ":" + currentSeconds;
+            total_duration.textContent = durationMinutes + ":" + durationSeconds;
         }
     }
+
+    // Clear the previous seek timer
+    clearInterval(updateTimer);
+
+    curr_time.textContent = "00:00";
+    total_duration.textContent = "00:00";
+    seek_slider.value = 0;
+
+        curr_track = document.getElementsByClassName('audioPlayer');
+        const song = track_list[0];
+
+        curr_track.src = song.preview;
     
-    seek_slider.addEventListener('input', (e) => {
-        showRangeProgress(e.target);
-    });
-    volume_slider.addEventListener('input', (e) => {
-        showRangeProgress(e.target);
-    });
+        track_art.style.backgroundImage = "url(" + trackIMAGE[0] + ")";
+        track_name.textContent = song.title;
+
+        now_playing.textContent = "Playing 1 song of 1";
+
+        updateTimer = setInterval(seekUpdate, 1000);
+
+        callPlayButton();
+
+       
+        /* const prevButton = document.getElementsByClassName('prev-track');
+        prevButton.addEventListener('click', () => {
+            if (index >= 0 && index <= track_list.length)
+                index -= 1;
+            else index = 0;
+        });
+
+        const nextButton = document.getElementsByClassName('next-track');
+        nextButton.addEventListener('click', () => {
+            if (index < track_list.length - 1)
+                index += 1;
+            else index = 0;
+        }); */
+
+        function setVolume() {
+            curr_track.volume = volume_slider.value / 100
+        }
+
+        function seekTo() {
+            const song_seekto = duration * (seek_slider.value / 100);
+            curr_track.currentTime = song_seekto
+        }
+
+        seek_slider.addEventListener('change', seekTo);
+
+        volume_slider.addEventListener('change', setVolume);
+
+        curr_time.addEventListener('change', seekUpdate(curr_track));
+        total_duration.addEventListener('change', seekUpdate(curr_track));
+
+
+        curr_track.addEventListener("ended", () => {
+            curr_time.textContent = "00:00";
+            total_duration.textContent = "00:00";
+            seek_slider.value = 0;
+        });
+    
 };
+
+/* for (let index = 0; index < track_list.length; index++) {
+    curr_track = document.getElementsByClassName('audioPlayer');
+    const song = track_list[index];
+
+    curr_track.src = song.preview;
+    curr_track.load();
+
+    track_art.style.backgroundImage = "url(" + trackIMAGE[index] + ")";
+    track_name.textContent = song.title;
+
+    now_playing.textContent = "Playing " + (track_index + 1) + " song of " + track_list.length;
+
+    updateTimer = setInterval(seekUpdate, 1000);
+
+    playTrack();
+
+   
+    const prevButton = document.getElementsByClassName('prev-track');
+    prevButton.addEventListener('click', () => {
+        if (index >= 0 && index <= track_list.length)
+            index -= 1;
+        else index = 0;
+    });
+
+    const nextButton = document.getElementsByClassName('next-track');
+    nextButton.addEventListener('click', () => {
+        if (index < track_list.length - 1)
+            index += 1;
+        else index = 0;
+    });
+
+    seek_slider.addEventListener('click', () => {  
+    const song_seekto = curr_track.duration * (seek_slider.value / 100);
+    curr_track.currentTime = song_seekto});
+
+    volume_slider.addEventListener('click', () => { curr_track.volume = volume_slider.value / 100 });
+
+    curr_time.addEventListener('click', seekUpdate(curr_track));
+    total_duration.addEventListener('click', seekUpdate(curr_track));
+
+
+    curr_track.addEventListener("ended", () => {
+        curr_time.textContent = "00:00";
+        total_duration.textContent = "00:00";
+        seek_slider.value = 0;
+        if (index < track_list.length - 1)
+            index += 1;
+        else index = 0;
+    });
+}; */
+
 
 export const executeSongComponent = {
 
@@ -163,7 +285,6 @@ export const executeSongComponent = {
 
                 <div class="slider_container">   <!-- Define the section for displaying the volume slider-->
                     <i class="fa fa-volume-down"></i>
-                    <output id="volume-output">100</output>
                     <input type="range" min="1" max="100" value="99" class="volume_slider">
                     <i class="fa fa-volume-up"></i>
                 </div>
