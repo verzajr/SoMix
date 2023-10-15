@@ -32,7 +32,7 @@ export async function handleExecuteBtn(event) {
     console.log(`trackID is ${trackID}`)
     localStorage.setItem('trackID',`${trackID}`);
 
-    const trackIMAGE = optionsButton.parentNode.name;
+    const trackIMAGE = resultCard.name;
     console.log(`trackIMAGE is ${trackIMAGE}`)
     localStorage.setItem('trackIMAGE',`${trackIMAGE}`);
 
@@ -42,6 +42,5 @@ export async function handleExecuteBtn(event) {
 
     console.log('Found a song ------', mySong);
   
-    
     changeDirection();
 };
