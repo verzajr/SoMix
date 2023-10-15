@@ -166,7 +166,7 @@ function createButtonsAndPlaylist(currentSong, trackIMAGE) {
 
         function seekTo() {
             const song_seekto = curr_track.duration * (seek_slider.value / 100);
-            curr_track.currentTime = song_seekto}
+            curr_track.currentTime = song_seekto
         }
 
         seek_slider.addEventListener('click', seekTo);
@@ -185,7 +185,7 @@ function createButtonsAndPlaylist(currentSong, trackIMAGE) {
                 index += 1;
             else index = 0;
         });
-
+    
 };
 
 /* for (let index = 0; index < track_list.length; index++) {
