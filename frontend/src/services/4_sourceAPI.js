@@ -3,9 +3,10 @@ export function API_GeneralSearch(searchValue, callback) {
     let result={};
     DZ.api(`/search?q=${searchValue}`, async function (response) {
         console.log("API response",response);
-        result = response;
+        result =  await response;
+        console.log("API result",response);
         if (typeof callback === "function") {
-           await callback(searchValue,result);
+           callback(searchValue, result);
         };
     });
 };

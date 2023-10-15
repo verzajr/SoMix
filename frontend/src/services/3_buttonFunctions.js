@@ -11,12 +11,18 @@ function getSearchResultsFromLocalStorage(searchValue){
     
 } */
 
+/* function APIresultsCallback(result){
+    let searchValue = localStorage.getItem("searchValue");
+    console.log("API Callback", searchValue);
+    processGeneralSearchResults(searchValue,result);
+}; */
+
 export function handleSearchClick() {
 
     const searchFieldValue = document.getElementById("searchField").value; // gets value from search field
     const lowerCaseSearchFieldValue= searchFieldValue.toLowerCase();
     console.log(`Handling Search for "${lowerCaseSearchFieldValue}"...`);
-
+    localStorage.setItem("searchValue",lowerCaseSearchFieldValue);
     API_GeneralSearch(lowerCaseSearchFieldValue, processGeneralSearchResults); // calls API function to search the API repository and gets a Json with results
      
     window.location.href = "#/search";
