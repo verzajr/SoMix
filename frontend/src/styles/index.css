@@ -329,6 +329,7 @@ body {
 
     .dropdown:hover .dropdown-content {
         display: block;
+        right:0;
     }
 
     .dropdown:hover .dropbtn {
