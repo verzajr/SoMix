@@ -448,7 +448,7 @@ body {
     
     /* Using flex with the row direction to
     align items in a horizontal direction */
-    .buttons {
+    .buttons, .slider_container {
     display: flex;
     grid-template-columns: 5% auto 5% auto 5% auto 5%;
     grid-template-rows: auto;
@@ -498,8 +498,7 @@ body {
     
     /* Define the slider width so that it scales properly */
     .slider_container {
-    width: 75%;
-    max-width: 75dvw;
+    width: 75dvw;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -512,11 +511,13 @@ body {
     -moz-appearance: none;
     appearance: none;
     height: 0.7dvh;
-    background: #12B347;
+    background: #F59325;
     opacity: 0.7;
+    border-radius: 0.1dvh;
     -webkit-transition: .2s;
     transition: opacity .2s;
     margin:0.5dvh 0.3dvw 0.5dvh 0.3dvw;
+    box-shadow: 0.5dvh 0.5dvh 0.5dvh -0.3dvh black;
     }
     
     /* Modify the appearance of the slider thumb */
@@ -527,9 +528,10 @@ body {
     appearance: none;
     width: 15px;
     height: 15px;
-    background: #F59325;
     cursor: pointer;
     border-radius: 50%;
+    background: #12B347;
+    box-shadow: 0.5dvh 0.5dvh 0.5dvh -0.3dvh black;
     }
     
     /* Change the opacity when mouse is hovered */
