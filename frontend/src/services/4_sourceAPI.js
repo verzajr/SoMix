@@ -1,11 +1,11 @@
 
 export async function API_GeneralSearch(searchValue, callback) {
     console.log("API comm started");
-    let result={};
-    await DZ.api(`/search?q=${searchValue}`,  function (response) {
-        console.log("API response",response);
-        result =  response;
-        console.log("API result",result);
+    let result = {};
+    await DZ.api(`/search?q=${searchValue}`, function (response) {
+        console.log("API response", response);
+        result = response;
+        console.log("API result", result);
         if (typeof callback === "function") {
             callback(searchValue, result);
         };
@@ -35,7 +35,7 @@ export async function API_TrackSearch(trackID) {
         localStorage.setItem(`searchResultsFor_${trackID}`, JSON.stringify(response));
         window.location.href = "#/songplayer";
     });
-        
+
 
 
 };
