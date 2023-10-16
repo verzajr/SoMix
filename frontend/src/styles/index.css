@@ -378,6 +378,7 @@ body {
         border-radius: 2dvh;
         background-color:rgba(99, 70, 45, 0.5);
         height: max-content;
+        max-height: 80dvh;
         width: max-content;
         align-self: center;
         justify-self: center;
@@ -449,11 +450,8 @@ body {
     /* Using flex with the row direction to
     align items in a horizontal direction */
     .buttons, .slider_container {
-    display: flex;
-    grid-template-columns: 5% auto 5% auto 5% auto 5%;
-    grid-template-rows: auto;
-    align-content: center;
-    justify-content: space-evenly;
+    display:flex;
+    justify-content: space-around;
     }
     
     .playpause-track,
@@ -472,19 +470,16 @@ body {
         align-self: center;
         align-content: center;
         justify-content: center;
+        margin:0.5dvh 0.3dvw 0.5dvh 0.3dvw;
     }
 
 
     .prev-track{
         justify-self: left;
-        grid-column-start: 2;
-        grid-column-end: 3;
     }
 
     .next-track{
         justify-self: right;
-        grid-column-start: 6;
-        grid-column-end: 7;
     }
     
     
