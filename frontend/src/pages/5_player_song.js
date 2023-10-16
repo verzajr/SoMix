@@ -156,7 +156,7 @@ export const executeSongComponent = {
                 <div class="slider_container">
                     <span class="current-time" class="time">0:00</span>
                     <input type="range" class="seek_slider" max="100" value="0">
-                    <span class="total_duration" class="time">0:00</span>
+                    <span class="total-duration" class="time">0:00</span>
                 </div>
 
                 <div class="buttons" id="controlButtons">     <!-- Define the section for displaying track buttons -->

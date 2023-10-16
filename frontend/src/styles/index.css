@@ -467,11 +467,8 @@ body {
     }
 
     .prev-track, .next-track{
-        height: 4dvh;
-        width: 4dvh;
+        display: flex;
         border: none;
-        background-color:rgba(99, 70, 45, 0);
-        justify-self: center;
         align-self: center;
         align-content: center;
         justify-content: center;
