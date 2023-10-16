@@ -493,7 +493,7 @@ body {
     
     /* Define the slider width so that it scales properly */
     .slider_container {
-    width: 75dvw;
+    width: 90dvw;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
