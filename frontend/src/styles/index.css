@@ -346,23 +346,24 @@ body {
     }
 
     .playButton{
-        height: 7.4dvh;
-        width: 7.4dvh;
+
         border: none;
         background-color:rgba(99, 70, 45, 0);
-        background-image: url("../icons/playbutton.png");
-        background-repeat: no-repeat;
         justify-self: center;
+        align-self: center;
+        grid-column-start: 4;
+        grid-column-end: 5;
+        
     }
 
     .pauseButton{
-        height: 6.36dvh;
-        width: 6.36dvh;
+
         border: none;
         background-color:rgba(99, 70, 45, 0);
-        background-image: url("../icons/pausebutton.png");
-        background-repeat: no-repeat;
         justify-self: center;
+        align-self: center;
+        grid-column-start: 4;
+        grid-column-end: 5;
     }
 
     .songPlayer {
@@ -377,10 +378,12 @@ body {
         border-radius: 2dvh;
         background-color:rgba(99, 70, 45, 0.5);
         height: max-content;
+        max-height: 80dvh;
         width: max-content;
         align-self: center;
         justify-self: center;
         z-index: 1;
+        object-fit: contain;
         }
 
 
@@ -390,11 +393,12 @@ body {
         grid-row-start: 5;
         grid-row-end: 6;
         border-radius: 2dvh;
-        opacity: 0.5;
         z-index: 0;
         width: inherit;
         align-self: center;
         justify-self: center;
+        max-height: 80dvh;
+        clip:auto;
     }
     
     .details {
@@ -408,9 +412,8 @@ body {
     .track-art {
     margin: 25px;
     height: 250px;
-    width: 250px;
-    background-image: URL(
-        "https://source.unsplash.com/Qrspubmx6kE/640x360");
+    width: 20dvw;
+    height: 20dvw;
     background-size: cover;
     background-position: center;
     border-radius: 15%;
@@ -418,23 +421,38 @@ body {
     
     /* Changing the font sizes to suitable ones */
     .now-playing {
-    font-size: 1rem;
+        font-size: 2dvh;
+        font-weight: bold;
+        font-family: "Dosis", sans-serif;
+        text-align: center;
+        margin: 0.5dvh 0.3dvw 0.5dvh 0.3dvw;
+        color: white;
     }
     
     .track-name {
-    font-size: 3rem;
+        font-size: 3dvh;
+        font-weight: bolder;
+        font-family: "Dosis", sans-serif;
+        text-align: center;
+        margin: 0.5dvh 0.3dvw 0.5dvh 0.3dvw;
+        color: white;
     }
     
     .track-artist {
-    font-size: 1.5rem;
+        font-size: 2dvh;
+        font-weight: bold;
+        font-family: "Dosis", sans-serif;
+        text-align: center;
+        margin: 0.5dvh 0.3dvw 0.5dvh 0.3dvw;
+        color: white;
     }
     
     /* Using flex with the row direction to
     align items in a horizontal direction */
-    .buttons {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+    .buttons, .slider_container {
+    display:flex;
+    align-content: center;
+    justify-content: center;
     }
     
     .playpause-track,
@@ -442,10 +460,30 @@ body {
     .next-track {
     padding: 25px;
     opacity: 0.8;
-    
+
     /* Smoothly transition the opacity */
     transition: opacity .2s;
     }
+
+    .prev-track, .next-track{
+        display: flex;
+        border: none;
+        align-self: center;
+        align-content: center;
+        justify-content: center;
+        margin:0.5dvh 0.3dvw 0.5dvh 0.3dvw;
+    }
+
+
+    .prev-track{
+        justify-self: left;
+    }
+
+    .next-track{
+        justify-self: right;
+    }
+    
+    
     
     /* Change the opacity when mouse is hovered */
     .playpause-track:hover,
@@ -456,10 +494,10 @@ body {
     
     /* Define the slider width so that it scales properly */
     .slider_container {
-    width: 75%;
-    max-width: 400px;
+    width: 90dvw;
     display: flex;
-    justify-content: center;
+    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
     }
     
@@ -468,11 +506,14 @@ body {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-    height: 5px;
-    background: black;
+    height: 0.7dvh;
+    background: #F59325;
     opacity: 0.7;
+    border-radius: 0.1dvh;
     -webkit-transition: .2s;
     transition: opacity .2s;
+    margin:0.5dvh 0.3dvw 0.5dvh 0.3dvw;
+    box-shadow: 0.5dvh 0.5dvh 0.5dvh -0.3dvh black;
     }
     
     /* Modify the appearance of the slider thumb */
@@ -483,9 +524,10 @@ body {
     appearance: none;
     width: 15px;
     height: 15px;
-    background: white;
     cursor: pointer;
     border-radius: 50%;
+    background: #12B347;
+    box-shadow: 0.5dvh 0.5dvh 0.5dvh -0.3dvh black;
     }
     
     /* Change the opacity when mouse is hovered */
@@ -495,7 +537,7 @@ body {
     }
     
     .seek_slider {
-    width: 60%;
+    width: 90%;
     }
     
     .volume_slider {
@@ -505,6 +547,12 @@ body {
     .current-time,
     .total-duration {
     padding: 10px;
+    font-size: 2dvh;
+    font-weight: bold;
+    font-family: "Dosis", sans-serif;
+    text-align: center;
+    margin: 0.5dvh 0.3dvw 0.5dvh 0.3dvw;
+    color: white;
     }
     
     i.fa-volume-down,
@@ -527,8 +575,10 @@ body {
 
 footer{
     background-color: #26355E;
+    padding: 1dvh 0.6dvw 1dvh 0.6dvw;
     color: silver;
-    font-size: 10px;
+    font-size: 1dvh;
+    min-height: 2dvh;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     grid-row-start: 2;
     grid-row-end: 3;
