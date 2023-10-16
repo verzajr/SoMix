@@ -144,8 +144,8 @@ export const executeSongComponent = {
             </nav>
         </div>
         <div class="orangeLine"></div>
-        <div class="songPlayer">
         <img class="songPlayerBackground" src="./images/fono.png">
+        <div class="songPlayer">
             <div id='audioControls'>
                 <div class="details">
                     <div class="now-playing">PLAYING x OF y</div>
