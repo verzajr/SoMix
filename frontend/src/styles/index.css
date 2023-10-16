@@ -346,11 +346,9 @@ body {
     }
 
     .playButton{
-        height: 7.4dvh;
-        width: 7.4dvh;
+
         border: none;
         background-color:rgba(99, 70, 45, 0);
-        background-repeat: no-repeat;
         justify-self: center;
         align-self: center;
         grid-column-start: 4;
@@ -359,8 +357,7 @@ body {
     }
 
     .pauseButton{
-        height: 6.36dvh;
-        width: 6.36dvh;
+
         border: none;
         background-color:rgba(99, 70, 45, 0);
         justify-self: center;
@@ -522,6 +519,7 @@ body {
     opacity: 0.7;
     -webkit-transition: .2s;
     transition: opacity .2s;
+    margin:0.5dvh 0.3dvw 0.5dvh 0.3dvw;
     }
     
     /* Modify the appearance of the slider thumb */
@@ -554,6 +552,12 @@ body {
     .current-time,
     .total-duration {
     padding: 10px;
+    font-size: 2dvh;
+    font-weight: bold;
+    font-family: "Dosis", sans-serif;
+    text-align: center;
+    margin: 0.5dvh 0.3dvw 0.5dvh 0.3dvw;
+    color: white;
     }
     
     i.fa-volume-down,
