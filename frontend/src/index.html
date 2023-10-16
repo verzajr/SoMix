@@ -1,20 +1,21 @@
-
-<!DOCTYPE html>  <!-- defines document type so that browser knows better how to deal with it -->
-
+<!DOCTYPE html> <!-- defines document type so that browser knows better how to deal with it -->
 
 
-<html>  <!-- starts HTML structure -->
 
-    <head> <!-- defines what will be the overall style of the page and sets basic protocols -->
-        <link rel="stylesheet" href="./styles/index.css" /> <!-- links page style to the .css file that contains the styles and is on the same folder -->
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Dosis">    <!-- brings font style from Google Fonts -->
-        <title>SoMix</title> <!-- Browser tab title -->
-    </head>
-    
-<body>    
+<html> <!-- starts HTML structure -->
+
+<head> <!-- defines what will be the overall style of the page and sets basic protocols -->
+    <link rel="stylesheet" href="./styles/index.css" />
+    <!-- links page style to the .css file that contains the styles and is on the same folder -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Dosis">
+    <!-- brings font style from Google Fonts -->
+    <title>SoMix</title> <!-- Browser tab title -->
+</head>
+
+<body>
     <section class="app" id="app"></section>
     <script type="module" src="./index.js"></script>
     <footer>VZA Web Design</footer>
@@ -23,28 +24,27 @@
     <script src="https://e-cdns-files.dzcdn.net/js/min/dz.js"></script>
     <script>
         DZ.init({
-            appId  : ' 633841',
-            channelUrl : 'https://somix-git-atualiza-my-team-e58620e2.vercel.app/channel.html'
-            /* channelUrl : 'https://somix.vercel.app/channel.html'
-            'somix-git-atualiza-my-team-e58620e2.vercel.app' */
+            appId: ' 633841',
+            channelUrl: 'https://somix.vercel.app/channel.html'
+
         });
     </script>
-   
+
 
     <script>
         // First, initialize the JavaScript SDK
-     
+
         // Then, request the user to log in
-        DZ.login(function(response) {
+        DZ.login(function (response) {
             if (response.authResponse) {
                 console.log('Welcome!  Fetching your information.... ');
-                DZ.api('/user/me', function(response) {
+                DZ.api('/user/me', function (response) {
                     console.log('Good to see you, ' + response.name + '.');
                 });
             } else {
                 console.log('User cancelled login or did not fully authorize.');
             }
-    }, {perms: 'basic_access,email'});
+        }, { perms: 'basic_access,email' });
     </script>
 </body>
 

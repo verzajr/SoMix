@@ -6,19 +6,19 @@ const createOptionsButtonElement = () => {
     const optionsButton = document.createElement('div');
     optionsButton.className = 'dropdown';
 
-        const dropButton = optionsButton.appendChild(createCustomHTMLElement('button', 'dropbtn', ''));
-        dropButton.appendChild(createCustomHTMLElement('i','fa fa-caret-down',''));
+    const dropButton = optionsButton.appendChild(createCustomHTMLElement('button', 'dropbtn', ''));
+    dropButton.appendChild(createCustomHTMLElement('i', 'fa fa-caret-down', ''));
 
-        const dropDownContent = optionsButton.appendChild(createCustomHTMLElement('div', 'dropdown-content',''));
-            
-            const executeButton = dropDownContent.appendChild(createCustomHTMLElement('a','resultFrame','Executar'));
-            executeButton.addEventListener('click', handleExecuteBtn);
+    const dropDownContent = optionsButton.appendChild(createCustomHTMLElement('div', 'dropdown-content', ''));
 
-            const addFavoriteButton = dropDownContent.appendChild(createCustomHTMLElement('a','resultFrame','Adicionar aos favoritos'));
-            addFavoriteButton.setAttribute('href', '#/favoritesongs')
+    const executeButton = dropDownContent.appendChild(createCustomHTMLElement('a', 'resultFrame', 'Executar'));
+    executeButton.addEventListener('click', handleExecuteBtn);
 
-            const addPlaylistBtn = dropDownContent.appendChild(createCustomHTMLElement('a','resultFrame','Adicionar a uma playlist'));
-            addPlaylistBtn.setAttribute('href', '#/playlist')
+    const addFavoriteButton = dropDownContent.appendChild(createCustomHTMLElement('a', 'resultFrame', 'Adicionar aos favoritos'));
+    addFavoriteButton.setAttribute('href', '#/favoritesongs')
+
+    const addPlaylistBtn = dropDownContent.appendChild(createCustomHTMLElement('a', 'resultFrame', 'Adicionar a uma playlist'));
+    addPlaylistBtn.setAttribute('href', '#/playlist')
 
     return optionsButton;
 };
@@ -29,7 +29,7 @@ const createCard = (element, image, id) => {
     const resultCard = createCustomHTMLElement('div', 'resultFrame', "");
     resultCard.setAttribute('id', `${id}`);
     resultCard.setAttribute('name', `${image}`);
-   /*  resultCard.setAttribute('name', cardType); */
+    /*  resultCard.setAttribute('name', cardType); */
     resultCard.appendChild(createImageElement(image));
     resultCard.appendChild(createCustomHTMLElement('p', 'cardText', element));
     resultCard.appendChild(createOptionsButtonElement());
@@ -52,11 +52,11 @@ const gatherCards = (resultsArray, referenceHTMLElement, cardType) => {
         const allTracks = resultsArray.map((e) => ({ track: e.title, image: e.album.cover, id: e.id }));
         allTracks.forEach((e) => referenceHTMLElement.appendChild(createCard(e.track, e.image, e.id)));
     };
-  /*   if (cardType === 'Tracks') {
-        console.log('MY RESULTS', resultsArray);
-        const allTracks = resultsArray.map((e) => ({ track: e.title, image: e.album.cover, executionURL: e.preview }));
-        allTracks.forEach((e) => referenceHTMLElement.appendChild(createCard(e.track, e.image, e.id)));
-    }; */
+    /*   if (cardType === 'Tracks') {
+          console.log('MY RESULTS', resultsArray);
+          const allTracks = resultsArray.map((e) => ({ track: e.title, image: e.album.cover, executionURL: e.preview }));
+          allTracks.forEach((e) => referenceHTMLElement.appendChild(createCard(e.track, e.image, e.id)));
+      }; */
 
 }
 
@@ -78,7 +78,7 @@ const renderTrackCards = () => {
     gatherCards(trackArray, trackTiles, "Tracks");
 }
 
-function buildSearchPage(){
+function buildSearchPage() {
 
     renderArtistCards();
     console.log("Building Artist Cards");
@@ -89,7 +89,7 @@ function buildSearchPage(){
 };
 
 const searchResultsComponent = {
-    
+
     render: () => {
         return `
         <a href="#/"><img class="logo" src="./images/logoColor.png" alt="Página inicial"></a> <!-- adding application logo -->
